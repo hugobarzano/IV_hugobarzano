@@ -25,4 +25,5 @@ En cuanto avance más en la asignatura, es posible que añada o elimine algún e
 ###Datos de contacto
 
 Para cualquier cosa, contactar con [hugobarzano@gmail.com]
+Twitter: @comp_mana
 
