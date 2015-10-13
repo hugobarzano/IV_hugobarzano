@@ -20,9 +20,9 @@ En cuanto avance más en la asignatura, es posible que añada o elimine algún e
 
 ###Inscripción en el concurso de software libre
 
-[inscripcion](https://www.dropbox.com/s/7yrlzu2pkvbtobb/concurso.png?dl=1)
+![inscripcion](https://www.dropbox.com/s/7yrlzu2pkvbtobb/concurso.png?dl=1)
 
 ###Datos de contacto
 
-Para cualquier cosa, contactar con [correo](hugobarzano@gmail.com)
+Para cualquier cosa, contactar con [hugobarzano@gmail.com]
 
