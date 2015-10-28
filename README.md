@@ -18,6 +18,9 @@ En una primera aproximación del problema, el proyecto contará con los siguient
 
 En cuanto avance más en la asignatura, es posible que añada o elimine algún elemento. 
 
+###Integración Continua: Travis
+![Travis](https://travis-ci.org/hugobarzano/osl-computer-management.svg" title="Build Status Images)
+
 ###Inscripción en el concurso de software libre
 
 ![inscripcion](https://www.dropbox.com/s/7yrlzu2pkvbtobb/concurso.png?dl=1)
