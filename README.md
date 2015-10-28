@@ -1,7 +1,7 @@
 # OSL Computer Management
 
 ##Proyecto para Infraestructura Virtual 2015/2016
-
+Travis ![Travis](https://travis-ci.org/hugobarzano/osl-computer-management.svg?branch=master)
 ###Descripción
 Se trata de realizar la infraestructura virtual necesaria para levantar una aplicación web que se encargue de controlar y automatizar la tarea de administrar y controlar la entrega y recogida de equipos informáticos por la Oficina de Software Libre así como el proceso de catalogarlos adecuadamente y generar informes.
 
@@ -18,8 +18,6 @@ En una primera aproximación del problema, el proyecto contará con los siguient
 
 En cuanto avance más en la asignatura, es posible que añada o elimine algún elemento. 
 
-###Integración Continua: Travis
-![Travis](https://travis-ci.org/hugobarzano/osl-computer-management.svg?branch=master)
 
 ###Inscripción en el concurso de software libre
 
