@@ -1,0 +1,19 @@
+language: python
+
+python:
+  - 2.7
+
+author:
+  - Hugo Barzano Cruz
+
+name:
+  - OSL - Computer management
+
+install:
+ - pip install -r requirements.txt
+ 
+script:
+ - python manage.py test
+
+
+
