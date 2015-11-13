@@ -10,9 +10,8 @@ author:
 name:
   - OSL - Computer management
 
-install:
- - apt-get install libpq-dev python-dev
- - pip install -r requirements.txt
+ install: "pip install -r requirements.txt --use-mirrors"
+
  
 script:
  - python manage.py test
