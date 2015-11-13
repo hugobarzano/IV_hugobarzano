@@ -10,7 +10,7 @@ author:
 name:
   - OSL - Computer management
 
- install: "pip install -r requirements.txt --use-mirrors"
+install: "pip install -r requirements.txt --use-mirrors"
 
  
 script:
