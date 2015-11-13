@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "­//W3C//DTD HTML 4.01//EN">
+<html>
+  <head>
+	  <link rel="stylesheet" href="../static/estilo.css" />
+    {% if title %}
+    <title>{{ title }} - Computer Management</title>
+    {% else %}
+    <title>Computer Management</title>
+    {% endif %}
+  </head>
+  <body>
+	  <div id="contenedor">
+		 <div id="cabecera"><a href="/index"> Computer Management </a></div>
+		<hr>
+		{% block head %}{% endblock %}
+		<hr>
+		<div id="cuerpo">
+
+			<div id="lateral">
+				<ul>
+				  <li><a href="/index">Home</a>
+				  </li><li><a href="#">Link chulo</a>
+				  </li><li><a href="#">Más enlaces</a>
+				  </li><li><a href="#">Otro último</a>
+				</li></ul>
+			</div>
+
+			<div id="lateral_derecho">
+				<img src="bannerlateral.gif" alt="" height="600" width="120">
+			</div>
+
+			 <div id="principal">
+				 {% block content %}{% endblock %}
+			 </div>
+
+		</div>
+
+		<div id="pie">
+			{% block foot %}{% endblock %}
+		</div>
+
+
+		</div>
+	 </div>
+
+  </body>
+</html>
