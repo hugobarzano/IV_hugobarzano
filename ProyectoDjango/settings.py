@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+
 import dj_database_url
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
@@ -86,7 +87,7 @@ DATABASES = {
 }
 ON_HEROKU = os.environ.get('PORT')
 if ON_HEROKU:
-	DATABASE_URL='postgres://xfkguxxjdcmgrp:cqk8UhZfqmBKystbg39wVZDWyB@ec2-54-204-6-113.compute-1.amazonaws.com:5432/d1ea7k9gsqu3j1'
+	DATABASE_URL='postgres://depwgavwnibefq:Oni7qm6V9p-Ynos0-L0IT8h_zX@ec2-54-83-46-91.compute-1.amazonaws.com:5432/d6f2e1is26nrdm'
 	DATABASES = {'default': dj_database_url.config(default=DATABASE_URL)}
 
 
