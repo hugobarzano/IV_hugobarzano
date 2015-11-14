@@ -67,6 +67,25 @@ En la web de travis, debemos indicar que repositorios queremos relacionar e incl
 	script:
  		- python manage.py test
 
+### PaaS: Heroku
+
+Para Realizar el despliegue de la aplicación en un PaaS he decidido utilizar Heroku. [Heroku](https://www.heroku.com/home) es una plataforma en la nube basado en un sistema de contenedores gestionado, con servicios de datos integrados y un potente ecosistema, para implementar y ejecutar aplicaciones modernas. He decidido utilziar Heroku debido a su facil integración con github y por ser de caracter gratuito(al menos algunos servicios). Heroku se caracteriza por el fichero de configuración denominado **Procfile**. En dicho fichero, indicamos a Heroku que queremos arrancar una instancia web y dejar que gunicorn ejecute nuestra aplicación dentro de ella: 
+
+	web: gunicorn ProyectoDjango.wsgi --log-file -
+
+Otro motivo por el cual usar Heroku es por la automatización del despliegue. Heroku nos facilita un repositorio para almacenar nuestra aplicación. Podemos actualizar el contenido de dicho repositorio y desplegar la aplicación mediante: 
+
+	git push heroku master
+
+Esto puede automatizarse un poco más mediante snap-ci. Como podemos observar en la siguiente captura, snap-ci nos permite vincular el repositorio en el que se encutra la aplicación y desglosar en un pipeline los distintos estados por los que pasa el despliegue, pasando por la instalación de dependencias y ejecución de los test para integración continua hasta despliegue con heroku. Snap-ci detectará los cambios con cada git push al repositorio, iniciandose el siguiente ciclo de contrución: 
+
+![snap_ci](https://www.dropbox.com/s/ghwn1qquer0at5x/pipline.png?dl=1) 
+
+El siguiente enlace les llevaŕa al [despliegue](https://computer-management.herokuapp.com/)
+
+
+
+
 
 
 

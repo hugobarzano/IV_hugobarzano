@@ -28,3 +28,21 @@ class JSONResponse(HttpResponse):
 		content = JSONRenderer().render(data)
 		kwargs['content_type'] = 'application/json'
 		super(JSONResponse, self).__init__(content, **kwargs)
+
+@csrf_exempt
+def Dispositivo_lista(request):
+	"""
+	Lista todos los dispositivos o crea uno nuevo
+	"""
+	if request.method == 'GET':
+		dispositivos = Dispositivo.objects.all()
+		serializador = DispositivoSerializado(dispositivos, many=True)
+		return JSONResponse(serializador.data)
+
+	elif request.method == 'POST':
+		data = JSONParser().parse(request)
+		serializador = DispositivoSerializado(data=data)
+		if serializador.is_valid():
+			serializador.save()
+			return JSONResponse(serializador.data, status=201)
+	return JSONResponse(serializador.errors, status=400)
