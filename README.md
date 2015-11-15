@@ -67,6 +67,12 @@ En la web de travis, debemos indicar que repositorios queremos relacionar e incl
 	script:
  		- python manage.py test
 
+
+
+## - Tercer Hito - 
+
+En una tercera aproximacion al problema, lo que se pretende es familiarizarse con las técnicas usadas para desplegar aplicaciones de cara a un lanzamiento inicial de nuestro producto web.
+
 ### PaaS: Heroku
 
 Para Realizar el despliegue de la aplicación en un PaaS he decidido utilizar Heroku. [Heroku](https://www.heroku.com/home) es una plataforma en la nube basado en un sistema de contenedores gestionado, con servicios de datos integrados y un potente ecosistema, para implementar y ejecutar aplicaciones modernas. He decidido utilziar Heroku debido a su facil integración con github y por ser de caracter gratuito(al menos algunos servicios). Heroku se caracteriza por el fichero de configuración denominado **Procfile**. En dicho fichero, indicamos a Heroku que queremos arrancar una instancia web y dejar que gunicorn ejecute nuestra aplicación dentro de ella: 
@@ -82,7 +88,6 @@ Esto puede automatizarse un poco más mediante snap-ci. Como podemos observar en
 ![snap_ci](https://www.dropbox.com/s/ghwn1qquer0at5x/pipline.png?dl=1) 
 
 El siguiente enlace les llevaŕa al [despliegue](https://computer-management.herokuapp.com/)
-
 
 
 
