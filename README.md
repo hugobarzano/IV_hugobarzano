@@ -71,11 +71,11 @@ En la web de travis, debemos indicar que repositorios queremos relacionar e incl
 
 ## - Tercer Hito - 
 
-En una tercera aproximacion al problema, lo que se pretende es familiarizarse con las técnicas usadas para desplegar aplicaciones de cara a un lanzamiento inicial de nuestro producto web.
+En una tercera aproximación al problema, lo que se pretende es familiarizarse con las técnicas usadas para desplegar aplicaciones de cara a un lanzamiento inicial de nuestro producto web.
 
 ### PaaS: Heroku
 
-Para Realizar el despliegue de la aplicación en un PaaS he decidido utilizar Heroku. [Heroku](https://www.heroku.com/home) es una plataforma en la nube basado en un sistema de contenedores gestionado, con servicios de datos integrados y un potente ecosistema, para implementar y ejecutar aplicaciones modernas. He decidido utilziar Heroku debido a su facil integración con github y por ser de caracter gratuito(al menos algunos servicios). Heroku se caracteriza por el fichero de configuración denominado **Procfile**. En dicho fichero, indicamos a Heroku que queremos arrancar una instancia web y dejar que gunicorn ejecute nuestra aplicación dentro de ella: 
+Para Realizar el despliegue de la aplicación en un PaaS he decidido utilizar Heroku. [Heroku](https://www.heroku.com/home) es una plataforma en la nube basado en un sistema de contenedores gestionado, con servicios de datos integrados y un potente ecosistema, para implementar y ejecutar aplicaciones modernas. He decidido utilizar Heroku debido a su fácil integración con github y por ser de carácter gratuito(al menos algunos servicios). Heroku se caracteriza por el fichero de configuración denominado **Procfile**. En dicho fichero, indicamos a Heroku que queremos arrancar una instancia web y dejar que gunicorn ejecute nuestra aplicación dentro de ella: 
 
 	web: gunicorn ProyectoDjango.wsgi --log-file -
 
@@ -83,11 +83,20 @@ Otro motivo por el cual usar Heroku es por la automatización del despliegue. He
 
 	git push heroku master
 
-Esto puede automatizarse un poco más mediante snap-ci. Como podemos observar en la siguiente captura, snap-ci nos permite vincular el repositorio en el que se encutra la aplicación y desglosar en un pipeline los distintos estados por los que pasa el despliegue, pasando por la instalación de dependencias y ejecución de los test para integración continua hasta despliegue con heroku. Snap-ci detectará los cambios con cada git push al repositorio, iniciandose el siguiente ciclo de contrución: 
+Esto puede automatizarse un poco más mediante snap-ci. Como podemos observar en la siguiente captura, snap-ci nos permite vincular el repositorio en el que se encuentra la aplicación y desglosar en un pipeline los distintos estados por los que pasa el despliegue, pasando por la instalación de dependencias y ejecución de los test para integración continua hasta despliegue con heroku. Snap-ci detectará los cambios con cada git push al repositorio, iniciándose el siguiente ciclo de construcción: 
 
 ![snap_ci](https://www.dropbox.com/s/ghwn1qquer0at5x/pipline.png?dl=1) 
 
-El siguiente enlace les llevaŕa al [despliegue](https://computer-management.herokuapp.com/)
+El siguiente enlace les llevará al [despliegue](https://computer-management.herokuapp.com/)
+
+La aplicación en local corre sobre una base de datos sqlite3 y en heroku sobre la postgresql que nos presta el PaaS al crear la aplicación.
+Para que heroku coja nuestros modelos es necesario ejecutar:
+	
+	 heroku run python manage.py syncdb
+ 
+La aplicación cuenta con funcionalidades para consultar, crear, modificar y eliminar dispositivos utilizando **Django REST framework**
+Para testear estas funcionalidades he simulado un navegador-cliente utilizando APITestCase y RequestFactory
+
 
 
 
