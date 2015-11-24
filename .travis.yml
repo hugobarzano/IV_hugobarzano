@@ -16,5 +16,7 @@ deploy:
   app: computer
 
 after_deploy:
+  - rhc env set OPENSHIFT_PYTHON_SERVER=gunicorn
+  - rhc app restart
   - python manage.py syncdb --noinput
     
