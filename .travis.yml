@@ -14,5 +14,7 @@ deploy:
   password: "root1993" 
   domain: "hugobarzano"
   app: computer
-  python manage.py syncdb --noinput
+
+after_deploy:
+  - python manage.py syncdb --noinput
     
