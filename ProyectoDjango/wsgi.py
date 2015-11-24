@@ -17,6 +17,7 @@ from dj_static import Cling
 #Despliegue en PaaS
 ON_OPENSHIFT = os.environ.get('OPENSHIFT_POSTGRESQL_PORT')
 if ON_OPENSHIFT:
+	os.environ['OPENSHIFT_PYTHON_SERVER'] = "gunicorn"
 	virtenv = os.environ['APPDIR'] + '/virtenv/'
 	os.environ['PYTHON_EGG_CACHE'] = os.path.join(virtenv, 'lib/python2.6/site-packages')
 	virtualenv = os.path.join(virtenv, 'bin/activate_this.py')
