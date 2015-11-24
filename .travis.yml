@@ -7,3 +7,9 @@ install:
 
 script:
  - python manage.py test 
+
+deploy:
+  provider: openshift
+  user: "hugobarzano@gmail.com"
+  password: "root1993" 
+  domain: "hugobarzano"
