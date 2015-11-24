@@ -13,5 +13,5 @@ deploy:
   user: "hugobarzano@gmail.com"
   password: "root1993" 
   domain: "hugobarzano"
-  app: computermanagement
+  app: computer
     
