@@ -14,6 +14,7 @@ from django.core.wsgi import get_wsgi_application
 
 from dj_static import Cling
 
+#Despliegue en PaaS
 ON_OPENSHIFT = os.environ.get('OPENSHIFT_POSTGRESQL_PORT')
 if ON_OPENSHIFT:
 	virtenv = os.environ['APPDIR'] + '/virtenv/'

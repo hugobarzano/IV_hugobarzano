@@ -78,18 +78,19 @@ WSGI_APPLICATION = 'ProyectoDjango.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
-
+#para local trabajar con sqlite3
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+#Despliegue en PaaS
 ON_HEROKU = os.environ.get('PORT')
 if ON_HEROKU:
 	DATABASE_URL='postgres://depwgavwnibefq:Oni7qm6V9p-Ynos0-L0IT8h_zX@ec2-54-83-46-91.compute-1.amazonaws.com:5432/d6f2e1is26nrdm'
 	DATABASES = {'default': dj_database_url.config(default=DATABASE_URL)}
-
+#Despliegue en PasS
 ON_OPENSHIFT = os.environ.get('OPENSHIFT_POSTGRESQL_PORT')
 if ON_OPENSHIFT:
 	DATABASE_URL='postgresql://$OPENSHIFT_POSTGRESQL_DB_HOST:$OPENSHIFT_POSTGRESQL_DB_PORT'
