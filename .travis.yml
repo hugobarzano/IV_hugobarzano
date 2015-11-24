@@ -8,6 +8,9 @@ install:
 script:
  - python manage.py test 
 
+before_deploy:
+  - rhc env set OPENSHIFT_PYTHON_SERVER=gunicorn -a computer
+
 deploy:
   provider: openshift
   user: "hugobarzano@gmail.com"
@@ -17,6 +20,5 @@ deploy:
 
 after_deploy:
   - rhc env set OPENSHIFT_PYTHON_SERVER=gunicorn -a computer
-  - rhc app restart -a computer
   - python manage.py syncdb --noinput
     
