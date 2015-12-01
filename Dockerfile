@@ -1,22 +1,18 @@
-FROM ubuntu:14.04
+FROM ubuntu:latest
 
 #Autor
 MAINTAINER Hugo Barzano Cruz <hugobarzano@gmail.com>
 
-#Actualizar
-RUN sudo apt-get update	-y
+#Instalar Python con todas las dependencias
 
-#Instalar paquetes basicos
-RUN sudo apt-get install -y build-essential
-RUN sudo apt-get install -y git
-RUN sudo apt-get install -y python-setuptools
-
-#Instalar bases de datos
-#RUN sudo apt-get install -y postgresql postgresql-contrib
-#RUN sudo apt-get install mysql-server mysql-client
-#RUN sudo apt-get install mongodb
+RUN apt-get update
+RUN apt-get -y install python python-setuptools 
+RUN apt-get install -y python-setuptools
+RUN easy_install pip
+	
 
 #Descargar aplicacion
+RUN apt-get install -y git
 RUN sudo git clone https://github.com/hugobarzano/osl-computer-management.git
 
 #Instalamos la aplicacion
@@ -25,4 +21,3 @@ RUN make install
 
 #Ejecutamos la aplicacion
 RUN make run
-
