@@ -1,9 +1,7 @@
 #Makefile
 
 install: 
-	sudo apt-get install -y python-pip
-	sudo pip install --upgrade pip
-	sudo pip install -r requirements.txt
+	python setup.py install
 	
 test: 
 	python manage.py test
