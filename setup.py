@@ -15,7 +15,6 @@ setup(name='ComputerManagement',
 		'django-toolbelt'
 		'djangorestframework',
 		'foreman',
-		'futures',
 		'gunicorn',
 		'Pygments',
 		'static3',
