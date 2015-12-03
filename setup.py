@@ -15,9 +15,7 @@ setup(name='ComputerManagement',
 		'django-toolbelt'
 		'djangorestframework',
 		'gunicorn',
-		'Pygments',
 		'static3',
 		'wheel',
-		'whitenoise',
 	],
 	zip_safe=False)
