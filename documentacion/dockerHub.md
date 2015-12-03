@@ -23,7 +23,4 @@ Por ultimo, podemos consultar el estado de la build
 
 Podemos obtener la imagen mediante 
 
-	sudo docker pull hugobarzano/osl-computer-management
-o
-
 	sudo docker pull hugobarzano/osl-computer-management:computer-management

@@ -100,10 +100,17 @@ Para testear estas funcionalidades he simulado un navegador-cliente utilizando A
 
 ##Docker Hub
 
+[Docker Hub](https://www.docker.com/docker-hub) es un servicio de registro en la nube para la construcción y envío de aplicaciones o servicios utilizando contenedores. Proporciona un recurso centralizado para la creación, distribución y la gestión de imágenes. Permite al usuario la automatización del flujo de trabajo a lo largo de la línea de desarrollo.
 
-[Dockerfile](https://github.com/hugobarzano/osl-computer-management/blob/master/Dockerfile)
+Para que Docker Hub automatice la constitución, es necesario crear un fichero de configuración [Dockerfile](https://github.com/hugobarzano/osl-computer-management/blob/master/Dockerfile) con todo lo necesario para que nuestra aplicación funcione. 
 
-[Configurar Docker Hub](https://github.com/hugobarzano/osl-computer-management/blob/master/documentacion/dockerHub.md)
+Pasos necesarios para [Configurar Docker Hub](https://github.com/hugobarzano/osl-computer-management/blob/master/documentacion/dockerHub.md) correctamente. 
+
+Enlace al repositorio de la [Automated Build](https://hub.docker.com/r/hugobarzano/osl-computer-management/)  
+
+Podemos descargar el entorno mediante la orden
+
+	sudo docker pull hugobarzano/osl-computer-management:computer-management
 
 
 
