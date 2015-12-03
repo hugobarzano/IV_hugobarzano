@@ -98,6 +98,14 @@ La aplicación cuenta con funcionalidades para consultar, crear, modificar y eli
 Para testear estas funcionalidades he simulado un navegador-cliente utilizando APITestCase y RequestFactory
 
 
+##Docker Hub
+
+
+[Dockerfile]()
+
+[Configurar Docker Hub]()
+
+
 
 
 
