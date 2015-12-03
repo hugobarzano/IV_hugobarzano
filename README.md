@@ -101,9 +101,9 @@ Para testear estas funcionalidades he simulado un navegador-cliente utilizando A
 ##Docker Hub
 
 
-[Dockerfile]()
+[Dockerfile](https://github.com/hugobarzano/osl-computer-management/blob/master/Dockerfile)
 
-[Configurar Docker Hub]()
+[Configurar Docker Hub](https://github.com/hugobarzano/osl-computer-management/blob/master/documentacion/dockerHub.md)
 
 
 
