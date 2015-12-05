@@ -97,6 +97,13 @@ Para que heroku coja nuestros modelos es necesario ejecutar:
 La aplicación cuenta con funcionalidades para consultar, crear, modificar y eliminar dispositivos utilizando **Django REST framework**
 Para testear estas funcionalidades he simulado un navegador-cliente utilizando APITestCase y RequestFactory
 
+##Entorno Disponible On-Line: Despliegue remoto
+
+Para probar el entorno de manera online, he puesto a disposicion del usuario una maquina virtual azure. Mediante el uso de [Fabric](http://www.fabfile.org/) he creado un [fabfile.py](https://github.com/hugobarzano/osl-computer-management/blob/master/fabfile.py) en el que describo las distintas tareas administrativas que se pueden llevar a cabo. 
+
+	fab -p hugo_1993 -H  hugobarzano@40.76.29.224 accion_despliegue
+
+
 
 ##Docker Hub
 
