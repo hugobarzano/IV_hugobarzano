@@ -8,6 +8,10 @@ def host_type():
 def peticion():
 	run('curl http://localhost:1111/')
 
+def get_aplicacion():
+	run('sudo apt-get install -y git')
+	run('sudo git clone https://github.com/hugobarzano/osl-computer-management.git')
+
 def instalacion():
 	run('cd osl-computer-management/ && sudo sh install.sh')
 
