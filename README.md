@@ -2,6 +2,7 @@
 
 ##Proyecto para Infraestructura Virtual 2015/2016
 [![Build Status](https://travis-ci.org/hugobarzano/osl-computer-management.svg?branch=master)](https://travis-ci.org/hugobarzano/osl-computer-management) [![Build Status](https://snap-ci.com/hugobarzano/osl-computer-management/branch/master/build_image)](https://snap-ci.com/hugobarzano/osl-computer-management/branch/master)
+[![Heroku](https://www.herokucdn.com/deploy/button.png)](https://computer-management.herokuapp.com/)
 ###Descripción
 Se trata de realizar la infraestructura virtual necesaria para levantar una aplicación web que se encargue de controlar y automatizar la tarea de administrar y controlar la entrega y recogida de equipos informáticos por la Oficina de Software Libre así como el proceso de catalogarlos adecuadamente y generar informes.
 
@@ -29,10 +30,6 @@ Para cualquier cosa, contactar con [hugobarzano@gmail.com]
 Twitter: @comp_mana
 
 
-## - Segundo Hito - 
-
-En una segunda aproximación al problema, la aplicación cuenta con dos modelos (Dispositivo e Informe) sobre los que se ejecutan una serie de test. Los test se encuentran en el archivo test.py que genera el framework Django al comenzar una aplicación. Para automatizar el proceso de generar documentación utilizo epydoc.
-
 ### Herramienta de Construcción
 
 Para automatizar el proceso de instalación,testeo, documentación y ejecución utilizo el siguiente makefile:
@@ -47,7 +44,8 @@ Para automatizar el proceso de instalación,testeo, documentación y ejecución 
 		 epydoc --html ComputerManagement/
 	
 	run:
-		python manage.py runserver
+		sudo python manage.py runserver 0.0.0.0:80 &
+
 
 ### Integración Continua
 
@@ -69,9 +67,6 @@ En la web de travis, debemos indicar que repositorios queremos relacionar e incl
 
 
 
-## - Tercer Hito - 
-
-En una tercera aproximación al problema, lo que se pretende es familiarizarse con las técnicas usadas para desplegar aplicaciones de cara a un lanzamiento inicial de nuestro producto web.
 
 ### PaaS: Heroku
 
