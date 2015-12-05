@@ -29,7 +29,7 @@ def ejecucion():
 
 #peticion
 def peticion():
-	run('curl http://localhost:1111/')
+	run('curl http://localhost:80/')
 
 
 

@@ -10,4 +10,4 @@ doc:
 	 epydoc --html ComputerManagement/
 	
 run:
-	python manage.py runserver 0.0.0.0:1111 &
+	sudo python manage.py runserver 0.0.0.0:80 &

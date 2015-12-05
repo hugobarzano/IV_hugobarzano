@@ -24,3 +24,19 @@ Tras esperar un rato, la implementación de la maquina virtual concluye y esta s
 
 ![azure_5](https://www.dropbox.com/s/m3tmmdzg505zqpj/azure_5.png?dl=1)
 
+
+#Configuración tráfico de red para la máquina virtual
+
+Para permitir tráfico entrante y saliente a la máquina virtual, he segido este [tutorial](https://azure.microsoft.com/es-es/documentation/articles/virtual-networks-create-nsg-arm-pportal/) creando dos reglas sobre la maquina azure.
+
+Regla entrada:
+
+![azure_entrada](https://www.dropbox.com/s/wqeystwm3bo8ras/azure_entrada.png?dl=1)
+
+Regla salida:
+
+![azure_salida](https://www.dropbox.com/s/n7id95aliuuu15t/azure_salida.png?dl=1)
+
+#Configurar nombre de dominio para la máquina vitual
+
+Para asignarle un nombre de dominio a la máquina virtual, he seguido el siguiente [tutorial](https://azure.microsoft.com/es-es/documentation/articles/virtual-machines-create-fqdn-on-portal/) ha consecuencia de ello, se le ha asignado un nombre de dominio y una nueva ip a la máuina virtual ![dns_azure](https://www.dropbox.com/s/pv6kb6lyrl5ksm2/azure_dns.png?dl=1)

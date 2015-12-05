@@ -99,6 +99,8 @@ Para testear estas funcionalidades he simulado un navegador-cliente utilizando A
 
 ##Entorno Disponible On-Line: Despliegue remoto
 
+[Aplicacion](http://computer-management.westeurope.cloudapp.azure.com/)
+
 Para probar el entorno de manera online, he puesto a disposicion del usuario una maquina virtual azure. 
 Para saber mas sobre la creación de máquinas virtuales en azure, consultar [aqui](https://github.com/hugobarzano/osl-computer-management/blob/master/documentacion/azure.md) 
 Mediante el uso de [Fabric](http://www.fabfile.org/) he creado un [fabfile.py](https://github.com/hugobarzano/osl-computer-management/blob/master/fabfile.py) en el que describo las distintas tareas de administración y despliegue que se pueden llevar a cabo de manera remota. Para saber mas sobre como realizar un despliegue remoto, consultar [aqui]() 
