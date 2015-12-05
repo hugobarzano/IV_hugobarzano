@@ -97,16 +97,15 @@ Para que heroku coja nuestros modelos es necesario ejecutar:
 La aplicación cuenta con funcionalidades para consultar, crear, modificar y eliminar dispositivos utilizando **Django REST framework**
 Para testear estas funcionalidades he simulado un navegador-cliente utilizando APITestCase y RequestFactory
 
-##Entorno Disponible On-Line: Despliegue remoto
+##Fabric: Despliegue remoto
 
-[Aplicacion](http://computer-management.westeurope.cloudapp.azure.com/)
+[Fabric](http://www.fabfile.org/) es un biblioteca Python y herramienta en línea de comandos que hace uso de SSH para llevar acabo tareas de administración o despliegue de aplicaciones.
+ 
+Mediante el uso de Fabric he creado un [fabfile.py](https://github.com/hugobarzano/osl-computer-management/blob/master/fabfile.py) en el que describo las distintas tareas de administración y despliegue que se pueden llevar a cabo de manera remota.
+Puedes consultar los detalles de como he realizado el despliegue remoto [aquí](https://github.com/hugobarzano/osl-computer-management/blob/master/documentacion/fabric.md) 
 
-Para probar el entorno de manera online, he puesto a disposicion del usuario una maquina virtual azure. 
-Para saber mas sobre la creación de máquinas virtuales en azure, consultar [aqui](https://github.com/hugobarzano/osl-computer-management/blob/master/documentacion/azure.md) 
-Mediante el uso de [Fabric](http://www.fabfile.org/) he creado un [fabfile.py](https://github.com/hugobarzano/osl-computer-management/blob/master/fabfile.py) en el que describo las distintas tareas de administración y despliegue que se pueden llevar a cabo de manera remota. Para saber mas sobre como realizar un despliegue remoto, consultar [aqui]() 
-
-	fab -p hugo_1993 -H  hugobarzano@40.76.29.224 accion_despliegue
-
+Para probar el entorno de manera online, he puesto a disposición del usuario una [maquina virtual azure](http://computer-management.westeurope.cloudapp.azure.com/)
+Puedes consultar los detalles de como he creado y configurado la máquina azure [aquí](https://github.com/hugobarzano/osl-computer-management/blob/master/documentacion/azure.md)
 
 
 ##Docker Hub
@@ -122,10 +121,4 @@ Enlace al repositorio de la [Automated Build](https://hub.docker.com/r/hugobarza
 Podemos descargar el entorno mediante la orden
 
 	sudo docker pull hugobarzano/osl-computer-management:computer-management
-
-
-
-
-
-
 
