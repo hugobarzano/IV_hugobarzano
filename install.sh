@@ -6,8 +6,8 @@
 sudo apt-get -y update
 
 #Descargar aplicacion
-sudo apt-get install -y git
-sudo git clone https://github.com/hugobarzano/osl-computer-management.git
+#sudo apt-get install -y git
+#sudo git clone https://github.com/hugobarzano/osl-computer-management.git
 
 # Instalar Python y PostgreSQL
 sudo apt-get install -y python-setuptools
@@ -21,11 +21,11 @@ sudo pip install --upgrade pip
 #Instalamos la aplicacion
 ls
 cd osl-computer-management/ && ls -l
-cd osl-computer-management/ && cat requirements.txt
+#cd osl-computer-management/ && cat requirements.txt
 cd osl-computer-management/ && sudo pip install -r requirements.txt
 
 #Realizamos migraciones
-cd osl-computer-management/ && python manage.py syncdb --noinput
+#cd osl-computer-management/ && python manage.py syncdb --noinput
 
 #Ejecucion
-cd osl-computer-management/ && make run
+#cd osl-computer-management/ && make run
