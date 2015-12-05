@@ -94,7 +94,7 @@ Para que heroku coja nuestros modelos es necesario ejecutar:
 La aplicación cuenta con funcionalidades para consultar, crear, modificar y eliminar dispositivos utilizando **Django REST framework**
 Para testear estas funcionalidades he simulado un navegador-cliente utilizando APITestCase y RequestFactory
 
-##Fabric: Despliegue remoto
+###Fabric: Despliegue remoto
 
 [Fabric](http://www.fabfile.org/) es un biblioteca Python y herramienta en línea de comandos que hace uso de SSH para llevar acabo tareas de administración o despliegue de aplicaciones.
  
@@ -105,7 +105,7 @@ Para probar el entorno de manera online, he puesto a disposición del usuario un
 Puedes consultar los detalles de como he creado y configurado la máquina azure [aquí](https://github.com/hugobarzano/osl-computer-management/blob/master/documentacion/azure.md)
 
 
-##Docker Hub
+###Docker Hub
 
 [Docker Hub](https://www.docker.com/docker-hub) es un servicio de registro en la nube para la construcción y envío de aplicaciones o servicios utilizando contenedores. Proporciona un recurso centralizado para la creación, distribución y la gestión de imágenes. Permite al usuario la automatización del flujo de trabajo a lo largo de la línea de desarrollo.
 
