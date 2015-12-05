@@ -51,7 +51,9 @@ Y comprobamos que esta funcionando mediante **curl http://localhost:80/**
 ![fab_4](https://www.dropbox.com/s/d28f3o9a7il2uxb/fab_4.png?dl=1)
 
 Llegados a este punto, si tenemos configuradas las reglas para permitir tráfico a través del puerto 80 para la maquina virtual azure,
- la aplicación debería estar disponible de manera total y global.
+ la aplicación debería estar disponible de manera [total y global](http://computer-management.westeurope.cloudapp.azure.com/).
+
+**Nota:**Todos estos pasos se pueden unificar en uno solo y realizar el despliegue de manera completa con una sola instrución
  
 ##Despliegue docker sobre maquina anfitriona
 
