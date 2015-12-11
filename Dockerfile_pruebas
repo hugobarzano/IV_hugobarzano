@@ -23,27 +23,29 @@ RUN sudo pip install --upgrade pip
 RUN apt-get install -y python-software-properties software-properties-common postgresql-9.3 postgresql-client-9.3 postgresql-contrib-9.3
 
 #CReacion base de datos
-RUN echo "postgres ALL = (ALL) ALL" >> /etc/sudoers 
+#RUN echo "postgres ALL = (ALL) ALL" >> /etc/sudoers 
+RUN echo "Usuario postgres"
 USER postgres
-RUN /etc/init.d/postgresql start
-RUN ls
-RUN /etc/init.d/postgresql start
-EXPOSE 5432
-RUN sudo -u postgres psql -c "CREATE USER docker5 PASSWORD 'docker'"
-RUN sudo -u postgres psql -c "ALTER ROLE docker WITH SUPERUSER"
-RUN sudo -u postgres psql -c "CREATE DATABASE docker WITH OWNER docker"
-RUN sudo -u postgres psql -c "GRANT ALL PRIVILEGES ON DATABASE docker TO docker"
+RUN    /etc/init.d/postgresql start &&\
+    psql --command "CREATE USER docker WITH SUPERUSER PASSWORD 'docker';" &&\
+    createdb -O docker docker
 
+RUN echo "Usuario root"
+USER root
 RUN echo "host all  all    0.0.0.0/0  md5" >> /etc/postgresql/9.3/main/pg_hba.conf
 RUN echo "listen_addresses='*'" >> /etc/postgresql/9.3/main/postgresql.conf
 
-
+ 	
+EXPOSE 5432
 
 #Instalamos la aplicacion
 RUN ls
-RUN cd osl-computer-management/ && ls -l
-RUN cd osl-computer-management/ && cat requirements.txt
-RUN cd osl-computer-management/ && sudo pip install -r requirements.txt
+RUN cd pruebas_IV/ && ls -l
+RUN cd pruebas_IV/ && cat requirements.txt
+RUN cd pruebas_IV/ && ls -l
+RUN cd pruebas_IV/ && sudo pip install -r requirements.txt
 
-#Realizamos migraciones
-RUN cd osl-computer-management/ && python manage.py syncdb --noinput
+#Realizamos migraciones 
+
+RUN cat pruebas_IV/ProyectoDjango/settings.py 
+RUN cd pruebas_IV/ && python manage.py syncdb --noinput
