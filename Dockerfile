@@ -2,7 +2,7 @@ FROM ubuntu:latest
 
 #Autor
 MAINTAINER Hugo Barzano Cruz <hugobarzano@gmail.com>
-
+ENV PYTHONUNBUFFERED 1
 #Actualizar Sistema Base
 RUN sudo apt-get -y update
 
@@ -23,7 +23,9 @@ RUN sudo pip install --upgrade pip
 RUN ls
 RUN cd osl-computer-management/ && ls -l
 RUN cd osl-computer-management/ && cat requirements.txt
+RUN cd osl-computer-management/ && ls -l
 RUN cd osl-computer-management/ && sudo pip install -r requirements.txt
 
-#Realizamos migraciones
-RUN cd osl-computer-management/ && python manage.py syncdb --noinput
+
+
+
