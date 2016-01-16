@@ -1,0 +1,19 @@
+db:
+  image: postgres
+web:
+  image: aplicacion
+  command: sh -c "cd /osl-computer-management && ls"
+  #command: sh -c "cd /osl-computer-management/ProyectoDjango && cat settings.py"
+  #command: sh -c "cd /osl-computer-management && python manage.py syncdb --noinput"
+  command: sh -c "ifconfig"
+  command: sh -c "cd /osl-computer-management && python manage.py syncdb --noinput && sudo python manage.py runserver 0.0.0.0:80"
+
+  ports:
+    - "8000:8000"
+    - "5432:5432"
+  links:
+    - db
+  environment:
+    - COMPOSE=true
+  
+
