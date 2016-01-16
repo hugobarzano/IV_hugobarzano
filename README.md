@@ -113,9 +113,28 @@ Para que Docker Hub automatice la constitución, es necesario crear un fichero d
 
 Pasos necesarios para [Configurar Docker Hub](https://github.com/hugobarzano/osl-computer-management/blob/master/documentacion/dockerHub.md) correctamente. 
 
-Enlace al repositorio de la [Automated Build](https://hub.docker.com/r/hugobarzano/osl-computer-management/)  
+Enlace al repositorio de la [Automated Build](https://hub.docker.com/r/hugobarzano/osl-computer-management/)
 
 Podemos descargar el entorno mediante la orden
 
 	sudo docker pull hugobarzano/osl-computer-management:computer-management
+
+###Trabajando con Docker
+
+Para trabajar con docker en nuestro equipo, es necesario ejecutar el scrip de instalación como súper usuario
+
+	sudo su
+	chmod +x install_docker.sh
+	./install_docker.sh
+  
+El entorno almacenado en Docker hub es una imagen básica pre-construida utilizando el servicio sqlite3. 
+Para trabajar con este entorno podemos utilizar la herramienta de construcción makefile
+
+	make docker
+
+Si queremos trabajar con algo mas potente, podemos utilizar la composición de servicios (docker-compose) y orquestar la aplicación con algún motor de bases de datos como por ejemplo PostgreSQL. Para trabajar con este entorno podemos utilizar la herramienta de construcción makefile
+
+	make docker_compose 
+
+
 
