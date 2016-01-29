@@ -1,25 +1,26 @@
 {% extends "computermanagement/base.html" %}
 
-{% block head %}
+{% load staticfiles %}
+{% block title %}Index{% endblock %}
 
- <h1>Hola!</h1>
+        {% block body_block %}
+    <div class="page-header">
+                <h1>¡Bienvenido a Computer Management!</h1>
+    </div>
 
-{% endblock %}
-{% block content %}
-  <h1><strong>LISTADO DE DISPOSITIVOS REGISTRADOS</strong></h1>
-  {% if lista_dispositivos %}
-  <ul>
-  {% for dis in lista_dispositivos %}
-    <li>{{ dis.nombre_dispositivo }}</li>
-  {% endfor %}
-  </ul>
-  {% else %}
-    <p>No hay dispositivos.</p>
-  {% endif %}
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">Top 5 Dispositivos</h3>
+        </div>
+      </div>
+              {% if Dispositivos %}
+                    <ul class="list-group">
+                        {% for d in Dispositivos %}
+                         <li class="list-group-item"><a href="/computermanagement/disposito/{{ d.slug }}">{{ d.nombre_dispositivo }}</a></li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <strong>No hay Dispositivos.</strong>
+                {% endif %}
 
-{% endblock %}
-
-{% block foot %}
-Piede la paginananananna
-
-{% endblock %}
+        {% endblock %}

@@ -1,0 +1,49 @@
+{% extends "computermanagement/base.html" %}
+
+{% load staticfiles %}
+
+{% block title %}Computer Management {% endblock %}
+
+        {% block body_block %}
+
+
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        {% if disposito %}
+          <h1> {{ nombre_dispositivo }} </h3>
+            <br>
+            <hr>
+
+      </div>
+    </div>
+
+                  {% if donaciones %}
+                    <ul class="list-group">
+                        {% for d in donaciones %}
+                         <li class="list-group-item"> {{d.nombre_solicitante }} ------ Direcion: {{ d.direcion }}<button class='btnMeGusta' bar:'t.nombre_bar' tapa:'t.nombre_tapa' >MeGusta </button> </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <strong> No hay donaciones en este bar </strong>
+                {% endif %}
+        {% else %}
+        <strong>El disposito {{ nombre_solicitante }} no existe</strong>
+        {% endif %}
+
+    <div class="panel panel-primary">
+
+    </div>
+
+
+
+
+
+
+            </div>
+
+
+          </div>
+
+
+
+        {% endblock %}

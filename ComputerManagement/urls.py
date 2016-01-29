@@ -6,5 +6,6 @@ urlpatterns = [
     url(r'^index/$', views.index, name='index'),
     url(r'^Dispositivos/$', views.Dispositivo_lista),
     url(r'^add_dispositivo/$', views.add_dispositivo, name='add_dispositivo'),
-    url(r'^Dispositivo/(?P<pk>[0-9]+)/$', views.Dispositivo_detalle),
+    url(r'^dispositivo/(?P<pk>[0-9]+)/$', views.Dispositivo_detalle),
+    url(r'^dispositivo/(?P<nombre_slug>[\w\-]+)/$', views.dispositivo, name='dispositivo'),
 ]

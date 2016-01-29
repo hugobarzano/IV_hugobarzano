@@ -19,6 +19,23 @@ def index (request):
 	context = {'lista_dispositivos': lista_dispositivos}
 	return render(request, 'computermanagement/index.html', context)
 
+def dispositivo(request, nombre_slug):
+	contexto = {}
+	try:
+		dispositivo = Dispositivo.objects.get(slug=nombre_slug)
+
+		#bar = Bar.objects.get(slug=bar_nombre_slug)
+		contexto['nombre_dispositivo'] = dispositivo.nombre_dispositivo
+		donacion = Donacion.objects.filter(dispositivo=dispositivo)
+		contexto['donaciones'] = donacion
+		contexto['dispositivo']=dispositivo
+	except Dispositivo.DoesNotExist:
+		pass
+
+	return render(request,'computermanagement/dispositivo.html', contexto)
+
+
+
 def add_dispositivo(request):
 	"""Vista de la funcionalidad de anadir dispositivo.
 
@@ -85,3 +102,34 @@ def Dispositivo_detalle(request, pk):
 	elif request.method == 'DELETE':
 		dispositivo.delete()
 		return HttpResponse(status=204)
+
+def solicitarDornacion(request, nombre_dispositivo):
+
+    try:
+        disposito = Dispositivo.objects.get(nombre_dispositivo=nombre_dispositivo)
+    except Dispositivo.DoesNotExist:
+                disposito = None
+
+    if request.method == 'POST':
+        form = DonacionForm(request.POST)
+        if form.is_valid():
+            if disposito:
+				contexto = {}
+				donacion = form.save(commit=False)
+				donacion.disposito = disposito
+				tapa.save()
+				#contexto['bar_nombre'] = bar.nombre
+				#tapas = Tapa.objects.filter(bar=bar)
+				#contexto['tapas'] = tapas
+				#contexto['bar']=bar
+				#contexto['bar_nombre_slug']=bar_nombre_slug
+				return render(request,'computermanagement/dispositivo.html', contexto)
+
+        else:
+            print form.errors
+    else:
+        form = TapaForm()
+
+    context_dict = {'form':form, 'bar': bar,'bar_nombre_slug':bar_nombre_slug}
+
+    return render(request, 'bares_y_tapas/add_tapa.html', context_dict)

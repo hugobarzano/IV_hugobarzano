@@ -1,6 +1,6 @@
 from django import forms
 from ComputerManagement.serializacion import DispositivoSerializado
-from ComputerManagement.models import Dispositivo
+from ComputerManagement.models import Dispositivo, Donacion
 
 class DispositivoForm(forms.ModelForm):
     id_dispositivo = forms.IntegerField()
@@ -12,3 +12,12 @@ class DispositivoForm(forms.ModelForm):
     class Meta:
         model = Dispositivo
         fields = ('id_dispositivo','nombre_dispositivo','fabricante','caracteristicas')
+
+class DonacionForm(forms.ModelForm):
+    id_donacion = forms.IntegerField()
+    direcion = forms.CharField(max_length=200, help_text="direcion")
+    detalles = forms.CharField(max_length=400, help_text="detalles")
+
+    class Meta:
+        model = Donacion
+        fields = ('id_donacion','direcion','detalles')

@@ -8,7 +8,7 @@
     <meta name="author" content="Hugo Barzano Cruz">
     <link rel="icon" href="http://getbootstrap.com/favicon.ico">
 
-    <title>Rango - {% block title %}Computer Mananagent{% endblock %}</title>
+    <title>WEB - {% block title %}Computer Mananagent{% endblock %}</title>
 
     <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="http://getbootstrap.com/examples/dashboard/dashboard.css" rel="stylesheet">
@@ -36,7 +36,7 @@
                  {% if user.is_authenticated %}
                      <li><a href="{% url 'auth_logout' %}?next=/index/">Logout</a></li>
                  {% else %}
-                     <li><a href="{% url 'registration_register' %}">Registro</a></li>
+                     <li><a href="{% url 'registration_register' %}">Registro </a></li>
                      <li><a href="{% url 'auth_login' %}">Login</a></li>
                  {% endif %}
            </ul>
