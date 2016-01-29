@@ -6,3 +6,4 @@ djangorestframework==3.3.0
 gunicorn==19.3.0
 static3==0.6.1
 wheel==0.24.0
+django-registration-redux

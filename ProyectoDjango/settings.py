@@ -42,6 +42,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'ComputerManagement',
     'rest_framework',
+    'registration',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -106,7 +107,7 @@ ON_OPENSHIFT = os.environ.get('OPENSHIFT_POSTGRESQL_PORT')
 if ON_OPENSHIFT:
 	DATABASE_URL='postgresql://$OPENSHIFT_POSTGRESQL_DB_HOST:$OPENSHIFT_POSTGRESQL_DB_PORT'
 	DATABASES = {'default': dj_database_url.config(default=DATABASE_URL)}
-	
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
@@ -120,6 +121,15 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+#Registro de usuarios
+REGISTRATION_OPEN = True                # If True, users can register
+ACCOUNT_ACTIVATION_DAYS = 7     # One-week activation window; you may, of course, use a different value.
+REGISTRATION_AUTO_LOGIN = True  # If True, the user will be automatically logged in.
+LOGIN_REDIRECT_URL = '/index/'  # The page you want users to arrive at after they successful log in
+LOGIN_URL = '/accounts/login/'  # The page users are directed to if they are not logged in,
+                                                                # and are trying to access pages requiring authentication
+
 
 
 # Static files (CSS, JavaScript, Images)
