@@ -149,4 +149,4 @@ def recogida(request):
 				print form.errors
 		else:
 				form = RecogidaForm()
-		return render(request, 'computermanagement/recogida.html', {'form': form})
+		return render(request, 'computermanagement/add_recogida.html', {'form': form})
