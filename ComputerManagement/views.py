@@ -20,11 +20,8 @@ def index (request):
 	contador=0
 	lista_dispositivos = Dispositivo.objects.all()
 	lista_solicitudes = Recogida.objects.all()
-	for dis in lista_dispositivos:
-		aux[contador]=dis.nombre_slug
-		contador++
 
-	contexto['dispositivos'] = aux
+	contexto['dispositivos'] = lista_dispositivos
 	contexto['solicitudes']= lista_solicitudes
 	return render(request, 'computermanagement/index.html', contexto)
 
