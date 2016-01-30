@@ -1,33 +1,17 @@
 {% extends "computermanagement/base.html" %}
 
-{% block head %}
+{% block body_block %}
+        <h1>¡Nuevo Dispositivo!</h1>
 
- <h1>Dispositivos</h1>
+        <form id="dis_form" method="post" action="/computermanagement/add_dispositivo/">
+          {% load bootstrap %}
 
-{% endblock %}
+          {{ form.nombre_dispositivo|bootstrap }}
+          {{ form.fabricante|bootstrap }}
+          {{ form.caracteristicas|bootstrap }}
 
-{% block content %}
 
-        <h1>Añadir un Dispositivo</h1>
 
-        <form id="disposito_form" method="post" action="/add_dispositivo/">
-
-            {% csrf_token %}
-            {% for hidden in form.hidden_fields %}
-                {{ hidden }}
-            {% endfor %}
-
-            {% for field in form.visible_fields %}
-                {{ field.errors }}
-                {{ field.help_text }}
-                {{ field }}
-            {% endfor %}
-
-            <input type="submit" name="submit" value="Crear Dispositivo" />
+            <input type="submit" name="submit" value="Añadir" />
         </form>
-  {% endblock %}
-
-  {% block foot %}
-  Piede la paginananananna
-
   {% endblock %}

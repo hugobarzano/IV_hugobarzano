@@ -13,14 +13,29 @@
           <h3 class="panel-title">Top 5 Dispositivos</h3>
         </div>
       </div>
-              {% if Dispositivos %}
+              {% if lista_dispositivos %}
                     <ul class="list-group">
-                        {% for d in Dispositivos %}
-                         <li class="list-group-item"><a href="/computermanagement/disposito/{{ d.slug }}">{{ d.nombre_dispositivo }}</a></li>
+                        {% for dis in lista_dispositivos %}
+                         <li class="list-group-item"><a href="/dispositivo/{{ dis.slug }}">{{ dis.nombre_dispositivo }}</a></li>
                         {% endfor %}
                     </ul>
                 {% else %}
                     <strong>No hay Dispositivos.</strong>
                 {% endif %}
+
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">Solicitudes de recogida</h3>
+                  </div>
+                </div>
+                        {% if lista_solicitudes %}
+                              <ul class="list-group">
+                                  {% for sol in lista_solicitudes %}
+                                   <li class="list-group-item"><a href="/dispositivo/{{ sol.nombre_donante }}">{{ sol.nombre_donante }}</a></li>
+                                  {% endfor %}
+                              </ul>
+                          {% else %}
+                              <strong>No hay Dispositivos.</strong>
+                          {% endif %}
 
         {% endblock %}

@@ -3,9 +3,9 @@ from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
-from ComputerManagement.models import Dispositivo
+from ComputerManagement.models import *
 from ComputerManagement.serializacion import DispositivoSerializado
-from ComputerManagement.forms import DispositivoForm
+from ComputerManagement.forms import *
 
 
 # Create your views here.
@@ -16,18 +16,18 @@ def index (request):
 		Tambien da la opcion de registrar una nueva empresa
 	"""
 	lista_dispositivos = Dispositivo.objects.all()
-	context = {'lista_dispositivos': lista_dispositivos}
+	lista_solicitudes = Recogida.objects.all()
+	context = {'lista_dispositivos': lista_dispositivos,'lista_solicitudes':lista_solicitudes}
 	return render(request, 'computermanagement/index.html', context)
 
 def dispositivo(request, nombre_slug):
 	contexto = {}
 	try:
 		dispositivo = Dispositivo.objects.get(slug=nombre_slug)
-
-		#bar = Bar.objects.get(slug=bar_nombre_slug)
 		contexto['nombre_dispositivo'] = dispositivo.nombre_dispositivo
-		donacion = Donacion.objects.filter(dispositivo=dispositivo)
-		contexto['donaciones'] = donacion
+		print dispositivo
+		donaciones = Donacion.objects.filter(dispositivo=dispositivo)
+		contexto['donaciones'] = donaciones
 		contexto['dispositivo']=dispositivo
 	except Dispositivo.DoesNotExist:
 		pass
@@ -103,7 +103,7 @@ def Dispositivo_detalle(request, pk):
 		dispositivo.delete()
 		return HttpResponse(status=204)
 
-def solicitarDornacion(request, nombre_dispositivo):
+def solicitarDonacion(request, nombre_dispositivo):
 
     try:
         disposito = Dispositivo.objects.get(nombre_dispositivo=nombre_dispositivo)
@@ -131,5 +131,17 @@ def solicitarDornacion(request, nombre_dispositivo):
         form = TapaForm()
 
     context_dict = {'form':form, 'bar': bar,'bar_nombre_slug':bar_nombre_slug}
-
     return render(request, 'bares_y_tapas/add_tapa.html', context_dict)
+
+def recogida(request):
+
+		if request.method == 'POST':
+			form = RecogidaForm(request.POST)
+			if form.is_valid():
+				form.save(commit=True)
+				return index(request)
+			else:
+				print form.errors
+		else:
+				form = RecogidaForm()
+		return render(request, 'computermanagement/recogida.html', {'form': form})

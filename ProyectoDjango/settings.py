@@ -43,6 +43,7 @@ INSTALLED_APPS = (
     'ComputerManagement',
     'rest_framework',
     'registration',
+    'bootstrapform',
 )
 
 MIDDLEWARE_CLASSES = (
