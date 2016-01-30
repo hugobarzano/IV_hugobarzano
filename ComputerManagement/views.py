@@ -16,11 +16,7 @@ def index (request):
 		Tambien da la opcion de registrar una nueva empresa
 	"""
 	lista_dispositivos = Dispositivo.objects.all()
-	print "lista dispositivo"
-	print lista_dispositivos
 	lista_solicitudes = Recogida.objects.all()
-	print "lista solicitudes"
-	print lista_solicitudes
 	context = {'dispositivos': lista_dispositivos,'solicitudes':lista_solicitudes}
 	return render(request, 'computermanagement/index.html', context)
 
