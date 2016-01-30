@@ -1,20 +1,30 @@
 #Makefile
 
-install: 
+install:
 	python setup.py install
-	
-test: 
+
+test:
 	python manage.py test
 
 doc:
 	 epydoc --html ComputerManagement/
-	
-sincronizacion: 
+
+sincronizacion:
 	sudo service postgresql start
 	sudo python manage.py syncdb --noinput
 
 run:
 	sudo python manage.py runserver 0.0.0.0:80 &
+
+heroku:
+	wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh   
+	heroku login
+	heroku create
+	git add .
+	git commit -m "despliegue en heroku"
+	git push heroku master
+	heroku ps:scale web=1
+	heroku open
 
 docker:
 	sudo service docker restart
