@@ -20,6 +20,8 @@ heroku:
 	wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh
 	heroku login
 	heroku create
+	heroku addons:create heroku-postgresql:hobby-dev
+	heroku pg:wait
 	git add .
 	git commit -m "despliegue en heroku"
 	git push heroku master
