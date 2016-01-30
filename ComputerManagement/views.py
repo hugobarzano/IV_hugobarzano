@@ -24,7 +24,7 @@ def index (request):
 	contexto['dispositivos'] = lista_dispositivos
 	contexto['solicitudes']= lista_solicitudes
 	return render(request, 'computermanagement/index.html', contexto)
-
+@csrf_exempt
 def dispositivo(request, nombre_slug):
 	contexto = {}
 	try:
@@ -40,7 +40,7 @@ def dispositivo(request, nombre_slug):
 	return render(request,'computermanagement/dispositivo.html', contexto)
 
 
-
+@csrf_exempt
 def add_dispositivo(request):
 	"""Vista de la funcionalidad de anadir dispositivo.
 
