@@ -28,7 +28,7 @@ def index (request):
 def dispositivo(request, nombre_slug):
 	contexto = {}
 	try:
-		dispositivo = Dispositivo.objects.get(slug=nombre_slug)
+		dispositivo = Dispositivo.objects.get(nombre_slug=nombre_slug)
 		contexto['nombre_dispositivo'] = dispositivo.nombre_dispositivo
 		print dispositivo
 		donaciones = Donacion.objects.filter(dispositivo=dispositivo)

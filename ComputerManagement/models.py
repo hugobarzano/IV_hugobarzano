@@ -9,10 +9,10 @@ class Dispositivo(models.Model):
 	nombre_dispositivo = models.CharField(max_length=200)
 	fabricante = models.CharField(max_length=200)
 	caracteristicas = models.CharField(max_length=400)
-	slug = models.SlugField()
+	nombre_slug = models.SlugField()
 
 	def save(self, *args, **kwargs):
-		self.slug = slugify(self.nombre_dispositivo)
+		self.nombre_slug = slugify(self.nombre_dispositivo)
 		super(Dispositivo, self).save(*args, **kwargs)
 
 		def __unicode__(self):
