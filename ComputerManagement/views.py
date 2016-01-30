@@ -17,7 +17,7 @@ def index (request):
 	"""
 	lista_dispositivos = Dispositivo.objects.order_by('nombre_dispositivo')[:5]
 	lista_solicitudes = Recogida.objects.all()
-	context = {'lista_dispositivos': lista_dispositivos,'lista_solicitudes':lista_solicitudes}
+	#context = {'lista_dispositivos': lista_dispositivos,'lista_solicitudes':lista_solicitudes}
 	return render(request, 'computermanagement/index.html', context)
 
 def dispositivo(request, nombre_slug):
