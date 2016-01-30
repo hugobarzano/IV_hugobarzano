@@ -23,7 +23,9 @@ heroku:
 	git add .
 	git commit -m "despliegue en heroku"
 	git push heroku master
-	ls
+	heroku run python manage.py makemigrations --noinput
+	heroku run python manage.py migrate --noinput
+	heroku run python manage.py syncdb --noinput
 	heroku ps:scale web=1
 	heroku open
 

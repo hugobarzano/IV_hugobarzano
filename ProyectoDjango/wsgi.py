@@ -15,12 +15,10 @@ from django.core.wsgi import get_wsgi_application
 from dj_static import Cling
 
 #Despliegue en PaaS
-ON_OPENSHIFT = os.environ.get('OPENSHIFT_POSTGRESQL_PORT')
-if ON_OPENSHIFT:
-	os.environ['OPENSHIFT_PYTHON_SERVER'] = "gunicorn"
+
 
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "ProyectoDjango.settings")
 application = get_wsgi_application()
 application = Cling(get_wsgi_application())
-
+application = DjangoWhiteNoise(computermanagement)
