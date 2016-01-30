@@ -105,7 +105,7 @@ if ON_COMPOSE:
 ON_HEROKU = os.environ.get('PORT')
 if ON_HEROKU:
     DATABASES['default'] =  dj_database_url.config()
-
+    DATABASE_URL=os.environ['DATABASE_URL']
 	#DATABASE_URL='postgres://depwgavwnibefq:Oni7qm6V9p-Ynos0-L0IT8h_zX@ec2-54-83-46-91.compute-1.amazonaws.com:5432/d6f2e1is26nrdm'
     #DATABASE_URL=os.environ['DATABASE_URL']
     #DATABASES = {'default': dj_database_url.config(default=DATABASE_URL)}
@@ -141,9 +141,9 @@ LOGIN_URL = '/accounts/login/'  # The page users are directed to if they are not
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
-STATIC_ROOT = 'staticfiles'
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
