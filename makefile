@@ -17,12 +17,13 @@ run:
 	sudo python manage.py runserver 0.0.0.0:80 &
 
 heroku:
-	wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh   
+	wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh
 	heroku login
 	heroku create
 	git add .
 	git commit -m "despliegue en heroku"
 	git push heroku master
+	ls
 	heroku ps:scale web=1
 	heroku open
 
