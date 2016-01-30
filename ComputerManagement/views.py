@@ -15,10 +15,12 @@ def index (request):
 		En ella se listan las empresas que hay registradas
 		Tambien da la opcion de registrar una nueva empresa
 	"""
+	contexto = {}
 	lista_dispositivos = Dispositivo.objects.all()
 	lista_solicitudes = Recogida.objects.all()
-	context = {'dispositivos': lista_dispositivos,'solicitudes':lista_solicitudes}
-	return render(request, 'computermanagement/index.html', context)
+	contexto['dispositivos'] = lista_dispositivos
+	contexto['solicitudes']= lista_solicitudes
+	return render(request, 'computermanagement/index.html', contexto)
 
 def dispositivo(request, nombre_slug):
 	contexto = {}
