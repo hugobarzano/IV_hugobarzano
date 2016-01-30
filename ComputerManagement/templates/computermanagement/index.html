@@ -13,9 +13,9 @@
           <h3 class="panel-title">Top 5 Dispositivos</h3>
         </div>
       </div>
-              {% if lista_dispositivos %}
+              {% if dispositivos %}
                     <ul class="list-group">
-                        {% for dis in lista_dispositivos %}
+                        {% for dis in dispositivos %}
                          <li class="list-group-item"><a href="/dispositivo/{{ dis.slug }}">{{ dis.nombre_dispositivo }}</a></li>
                         {% endfor %}
                     </ul>
@@ -28,10 +28,10 @@
             <h3 class="panel-title">Solicitudes de recogida</h3>
                   </div>
                 </div>
-                        {% if lista_solicitudes %}
+                        {% if solicitudes %}
                               <ul class="list-group">
-                                  {% for sol in lista_solicitudes %}
-                                   <li class="list-group-item"><a href="/dispositivo/{{ sol.nombre_donante }}">{{ sol.nombre_donante }}</a></li>
+                                  {% for sol in solicitudes %}
+                                   <li class="list-group-item">{{ sol.nombre_donante }}</li>
                                   {% endfor %}
                               </ul>
                           {% else %}
