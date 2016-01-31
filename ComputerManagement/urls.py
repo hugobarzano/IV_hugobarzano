@@ -8,6 +8,7 @@ urlpatterns = [
     url(r'^computermanagement/add_dispositivo/$', views.add_dispositivo, name='add_dispositivo'),
     #url(r'^dispositivo/(?P<pk>[0-9]+)/$', views.Dispositivo_detalle),
     #url(r'^dispositivo/(?P<bar_nombre_slug>[\w\-]+)/$', views.bar, name='bar'),
-    url(r'^recogida/$', views.recogida, name='recogida'),
+    url(r'^computermanagement/add_recogida/$', views.add_recogida, name='add_recogida'),
     url(r'^dispositivo/(?P<nombre_slug>[\w\-]+)/$', views.dispositivo, name='dispositivo'),
+    url(r'^recogida/(?P<dni_donante>[\w\-]+)/$', views.recogida, name='recogida'),  # New!
 ]

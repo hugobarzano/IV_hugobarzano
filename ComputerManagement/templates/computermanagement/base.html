@@ -36,7 +36,7 @@
                  {% if user.is_authenticated %}
                      <li><a href="{% url 'auth_logout' %}?next=/index/">Logout</a></li>
                      <li><a href="{% url 'add_dispositivo' %}?next=/index/">Nuevo Dispositivo</a></li>
-                      <li><a href="{% url 'recogida' %}?next=/index/">Solicitar Recogida</a></li>
+                      <li><a href="{% url 'add_recogida' %}?next=/index/">Solicitar Recogida</a></li>
                  {% else %}
                      <li><a href="{% url 'registration_register' %}">Registro </a></li>
                      <li><a href="{% url 'auth_login' %}">Login</a></li>

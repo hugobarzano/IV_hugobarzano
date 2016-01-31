@@ -31,6 +31,8 @@
                         {% if solicitudes %}
                               <ul class="list-group">
                                   {% for sol in solicitudes %}
+                                  <li class="list-group-item"><a href="/dispositivo/{{ dis.nombre_slug }}">{{ dis.nombre_dispositivo  }}</a></li>
+
                                    <li class="list-group-item">{{ sol.nombre_donante }}</li>
                                   {% endfor %}
                               </ul>

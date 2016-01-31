@@ -3,7 +3,7 @@
 {% block body_block %}
         <h1>¡Solicita una Recogida!</h1>
 
-        <form id="dis_form" method="post" action="/computermanagement/recogida/">
+        <form id="dis_form" method="post" action="/computermanagement/add_recogida/">
 
             {% csrf_token %}
             {% for hidden in form.hidden_fields %}

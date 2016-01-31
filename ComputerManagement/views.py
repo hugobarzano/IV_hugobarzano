@@ -138,7 +138,8 @@ def solicitarDonacion(request, nombre_dispositivo):
     context_dict = {'form':form, 'bar': bar,'bar_nombre_slug':bar_nombre_slug}
     return render(request, 'bares_y_tapas/add_tapa.html', context_dict)
 
-def recogida(request):
+@csrf_exempt
+def add_recogida(request):
 
 		if request.method == 'POST':
 			form = RecogidaForm(request.POST)
@@ -150,3 +151,14 @@ def recogida(request):
 		else:
 				form = RecogidaForm()
 		return render(request, 'computermanagement/add_recogida.html', {'form': form})
+
+@csrf_exempt
+def recogida(request, dni_donante):
+	contexto = {}
+	try:
+		recogida = Recogida.objects.get(dni_donante=dni_donante)
+		contexto['recogida'] = recogida
+	except Recogida.DoesNotExist:
+		pass
+
+	return render(request,'computermanagement/recogida.html', contexto)
