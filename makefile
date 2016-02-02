@@ -9,12 +9,19 @@ test:
 doc:
 	 epydoc --html ComputerManagement/
 
-sincronizacion:
-	sudo service postgresql start
-	sudo python manage.py syncdb --noinput
+inicializar:
+	sudo pip install -r requirements.txt
+	python manage.py makemigrations --noinput
+	python manage.py migrate --noinput
+	python manage.py syncdb --noinput
+	chmod +x populate.py
+	python populate.py
+
+free:
+	sudo fuser -k 80/tcp
 
 run:
-	sudo python manage.py runserver 0.0.0.0:80 &
+	sudo python manage.py runserver 0.0.0.0:80
 
 heroku:
 	wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh

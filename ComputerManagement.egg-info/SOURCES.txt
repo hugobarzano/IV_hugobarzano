@@ -1,0 +1,16 @@
+setup.py
+ComputerManagement/__init__.py
+ComputerManagement/admin.py
+ComputerManagement/forms.py
+ComputerManagement/models.py
+ComputerManagement/obsoleto.py
+ComputerManagement/serializacion.py
+ComputerManagement/test.py
+ComputerManagement/urls.py
+ComputerManagement/views.py
+ComputerManagement.egg-info/PKG-INFO
+ComputerManagement.egg-info/SOURCES.txt
+ComputerManagement.egg-info/dependency_links.txt
+ComputerManagement.egg-info/not-zip-safe
+ComputerManagement.egg-info/requires.txt
+ComputerManagement.egg-info/top_level.txt

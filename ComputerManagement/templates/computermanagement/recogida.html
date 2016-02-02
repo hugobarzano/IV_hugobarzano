@@ -9,26 +9,37 @@
     <div class="panel panel-primary">
       <div class="panel-heading">
         {% if recogida %}
-          <h1> {{ recogida.nombre_donante }} </h3>
+          <h1> {{ recogida.nombre_donante }} </h1>
+          <h3> {{ recogida.dni_donante }} </h3>
             <br>
             <hr>
-
-      </div>
-    </div>
-
-    <div class="panel panel-primary">
-
-    </div>
-
-
-
-
-
-
-            </div>
-
+          </div>
+        </div>
+          <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title"> {{ recogida.direccion_donante }} </h3>
+            <br>
+            <hr>
+            {% load easy_maps_tags %}
+            <!-- Default map with 300x400 dimensions -->
+            {% easy_map  recogida.direccion_donante   800 300 %}
+            {% load easy_maps_tags cache %}
+            {% cache 600 my_map firm.address %}
+            {% easy_map firm.address 300 400 %}
+            {% endcache %}
+            <br>
+            <hr>
+            <h3 class="panel-title"> Correo: {{ recogida.correo_donante }} </h3>
+            <h4 class="panel-title"> Comentario: {{ recogida.comentario_donante }} </h4>
 
           </div>
+        </div>
+
+          {% else %}
+            <strong>No hay solicitud de recogida</strong>
+          {% endif %}
+
+
 
 
 

@@ -1,0 +1,7 @@
+dj-database-url
+dj-static
+Django
+django-toolbeltdjangorestframework
+gunicorn
+static3
+wheel

@@ -45,6 +45,7 @@ INSTALLED_APPS = (
     'registration',
     'bootstrapform',
     'bootstrap_toolkit',
+    'easy_maps',
 )
 
 MIDDLEWARE_CLASSES = (
