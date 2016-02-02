@@ -105,7 +105,8 @@ if ON_COMPOSE:
 ON_HEROKU = os.environ.get('PORT')
 if ON_HEROKU:
     DATABASE_URL="postgres://depwgavwnibefq:Oni7qm6V9p-Ynos0-L0IT8h_zX@ec2-54-83-46-91.compute-1.amazonaws.com:5432/d6f2e1is26nrdm"
-	DATABASES = {'default': dj_database_url.config(default=DATABASE_URL)}    #DATABASE_URL=os.environ['DATABASE_URL']
+    DATABASES = {'default': dj_database_url.config(default=DATABASE_URL)}
+    #DATABASE_URL=os.environ['DATABASE_URL']
 	#DATABASE_URL='postgres://depwgavwnibefq:Oni7qm6V9p-Ynos0-L0IT8h_zX@ec2-54-83-46-91.compute-1.amazonaws.com:5432/d6f2e1is26nrdm'
     #DATABASE_URL=os.environ['DATABASE_URL']
     #DATABASES = {'default': dj_database_url.config(default=DATABASE_URL)}
