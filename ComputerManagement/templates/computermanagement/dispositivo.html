@@ -10,6 +10,9 @@
       <div class="panel-heading">
         {% if dispositivo %}
           <h1> {{ nombre_dispositivo }} </h3>
+          <h4> {{ dispositivo.fabricante }} </h4>
+          <h4> {{ dispositivo.caracteristicas }} </h4>
+          <a href="solicitarDonacion/"><button> Solicitar dispositivo </button></a>
             <br>
             <hr>
 
@@ -19,7 +22,9 @@
                   {% if donaciones %}
                     <ul class="list-group">
                         {% for d in donaciones %}
-                         <li class="list-group-item"> {{d.nombre_solicitante }} ------ Direcion: {{ d.direcion }} </li>
+                         <li class="list-group-item"> {{d.nombre_solicitante }} Direcion: {{ d.direccion }}
+                          Detalles: {{d.detalles}}
+                          </li>
                         {% endfor %}
                     </ul>
                 {% else %}

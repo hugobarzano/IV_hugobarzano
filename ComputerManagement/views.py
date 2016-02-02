@@ -30,7 +30,6 @@ def dispositivo(request, nombre_slug):
 	try:
 		dispositivo = Dispositivo.objects.get(nombre_slug=nombre_slug)
 		contexto['nombre_dispositivo'] = dispositivo.nombre_dispositivo
-		print dispositivo
 		donaciones = Donacion.objects.filter(dispositivo=dispositivo)
 		contexto['donaciones'] = donaciones
 		contexto['dispositivo']=dispositivo
@@ -108,35 +107,36 @@ def Dispositivo_detalle(request, pk):
 		dispositivo.delete()
 		return HttpResponse(status=204)
 
-def solicitarDonacion(request, nombre_dispositivo):
+@csrf_exempt
+def solicitarDonacion(request, nombre_slug):
 
     try:
-        disposito = Dispositivo.objects.get(nombre_dispositivo=nombre_dispositivo)
+        dispositivo = Dispositivo.objects.get(nombre_slug=nombre_slug)
     except Dispositivo.DoesNotExist:
-                disposito = None
+                dispositivo = None
 
     if request.method == 'POST':
         form = DonacionForm(request.POST)
         if form.is_valid():
-            if disposito:
+            if dispositivo:
 				contexto = {}
 				donacion = form.save(commit=False)
-				donacion.disposito = disposito
-				tapa.save()
-				#contexto['bar_nombre'] = bar.nombre
-				#tapas = Tapa.objects.filter(bar=bar)
-				#contexto['tapas'] = tapas
-				#contexto['bar']=bar
-				#contexto['bar_nombre_slug']=bar_nombre_slug
+				print dispositivo.nombre_slug
+				donacion.dispositivo = dispositivo
+				donacion.save()
+				contexto['nombre_dispositivo'] = dispositivo.nombre_dispositivo
+				donaciones = Donacion.objects.filter(dispositivo=dispositivo)
+				contexto['donaciones'] = donaciones
+				contexto['dispositivo']=dispositivo
 				return render(request,'computermanagement/dispositivo.html', contexto)
 
         else:
             print form.errors
     else:
-        form = TapaForm()
+        form = DonacionForm()
 
-    context_dict = {'form':form, 'bar': bar,'bar_nombre_slug':bar_nombre_slug}
-    return render(request, 'bares_y_tapas/add_tapa.html', context_dict)
+    context_dict = {'form':form}
+    return render(request, 'computermanagement/donacion.html', context_dict)
 
 @csrf_exempt
 def add_recogida(request):

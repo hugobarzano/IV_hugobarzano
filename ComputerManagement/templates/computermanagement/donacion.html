@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block body_block %}
+        <h1>¡Solicita el equipo que deseas!</h1>
+
+        <form id="dis_form" method="post" action="">
+          {% load bootstrap %}
+          {{ form|bootstrap }}
+
+            <input type="submit" name="submit" value="Solicitar" />
+        </form>
+  {% endblock %}
