@@ -16,8 +16,6 @@ def index (request):
 		Tambien da la opcion de registrar una nueva empresa
 	"""
 	contexto = {}
-	aux={}
-	contador=0
 	lista_dispositivos = Dispositivo.objects.all()
 	lista_solicitudes = Recogida.objects.all()
 
@@ -37,6 +35,19 @@ def dispositivo(request, nombre_slug):
 		pass
 
 	return render(request,'computermanagement/dispositivo.html', contexto)
+
+
+@csrf_exempt
+def remove_dispositivo(request, nombre_slug):
+	dispositivo = Dispositivo.objects.get(nombre_slug=nombre_slug)
+	dispositivo.delete()
+	contexto = {}
+	lista_dispositivos = Dispositivo.objects.all()
+	lista_solicitudes = Recogida.objects.all()
+
+	contexto['dispositivos'] = lista_dispositivos
+	contexto['solicitudes']= lista_solicitudes
+	return render(request, 'computermanagement/index.html', contexto)
 
 
 @csrf_exempt
