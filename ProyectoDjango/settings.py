@@ -28,8 +28,8 @@ SECRET_KEY = '!204$cg#e_oeru-cfzw&vqa15*h*7@)px8^g)mnopvmn9kmfsk'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-#ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
+#ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -44,6 +44,7 @@ INSTALLED_APPS = (
     'rest_framework',
     'registration',
     'bootstrapform',
+    'bootstrap_toolkit',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -63,9 +64,7 @@ TEMPLATE_PATH = os.path.join(BASE_DIR, 'templates')
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [
-            TEMPLATE_PATH,
-        ],
+        'DIRS': [TEMPLATE_PATH],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -151,14 +150,15 @@ LOGIN_URL = '/accounts/login/'  # The page users are directed to if they are not
 #    os.path.join(BASE_DIR, 'static'),
 #)
 
-#BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
-
+STATIC_PATH = os.path.join(BASE_DIR,'static')
+STATIC_ROOT = 'staticfiles'
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
+    STATIC_PATH,
 )
 
-# Simplified static file serving.
-# https://warehouse.python.org/project/whitenoise/
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
