@@ -11,7 +11,7 @@ import os
 import sys
 import django.core.handlers.wsgi
 from django.core.wsgi import get_wsgi_application
-from whitenoise.django import DjangoWhiteNoise
+#from whitenoise.django import DjangoWhiteNoise
 from dj_static import Cling
 
 #Despliegue en PaaS
