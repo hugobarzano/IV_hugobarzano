@@ -103,8 +103,9 @@ if ON_COMPOSE:
 	}
 #Despliegue en PaaS
 ON_HEROKU = os.environ.get('PORT')
-#if ON_HEROKU:
-    #DATABASES['default'] =  dj_database_url.config()
+if ON_HEROKU:
+    DATABASE_URL=os.environ['DATABASE_URL']
+    DATABASES['default'] =  dj_database_url.config()
     #DATABASE_URL=os.environ['DATABASE_URL']
 	#DATABASE_URL='postgres://depwgavwnibefq:Oni7qm6V9p-Ynos0-L0IT8h_zX@ec2-54-83-46-91.compute-1.amazonaws.com:5432/d6f2e1is26nrdm'
     #DATABASE_URL=os.environ['DATABASE_URL']
@@ -141,11 +142,11 @@ LOGIN_URL = '/accounts/login/'  # The page users are directed to if they are not
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
-
+STATIC_PATH = os.path.join(BASE_DIR,'static')
+STATIC_URL = '/static/'
+STATIC_ROOT= 'staticfiles'
+STATICFILES_DIRS = (
+    STATIC_PATH,
+)
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 DAB_FIELD_RENDERER = 'django_admin_bootstrapped.renderers.BootstrapFieldRenderer'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATIC_URL = '/static/'
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
