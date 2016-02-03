@@ -34,7 +34,7 @@ heroku:
 	heroku addons:create heroku-postgresql:hobby-dev
 	git add .
 	git commit -m "despliegue en heroku"
-	git push heroku master:heroku-deploy-hugo
+	git push heroku heroku-deploy-hugo
 	heroku run python manage.py makemigrations --noinput
 	heroku run python manage.py migrate --noinput
 	heroku run python manage.py syncdb --noinput
@@ -43,7 +43,7 @@ heroku:
 	heroku run chmod +x populate.py
 	heroku run python populate.py
 	heroku ps:scale web=1
-	heroku open
+	heroku open https://heroku-deploy-hugo.herokuapp.com/
 
 docker:
 	sudo service docker restart
