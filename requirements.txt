@@ -8,3 +8,5 @@ django-registration-redux
 django-bootstrap-toolkit==2.15.0
 django-bootstrap-form
 django-easy-maps
+dj-static==0.0.6
+static3==0.6.1
