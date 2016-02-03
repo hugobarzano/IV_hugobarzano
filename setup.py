@@ -10,12 +10,15 @@ setup(name='ComputerManagement',
 	packages=['ComputerManagement'],
 	install_requires=[
 		'dj-database-url',
-		'dj-static',
 		'Django',
 		'django-toolbelt'
 		'djangorestframework',
 		'gunicorn',
+		'django-registration-redux',
+		'django-bootstrap-toolkit',
+		'django-bootstrap-form',
+		'django-easy-maps',
+		'dj-static',
 		'static3',
-		'wheel',
 	],
 	zip_safe=False)
