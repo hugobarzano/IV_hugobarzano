@@ -4,16 +4,17 @@
   tasks:
   - name: Actualizar sistema base
     apt: update_cache=yes upgrade=dist
-  - name: Instalar paquetes necesarios
-    apt: name=python-setuptools state=present
-    apt: name=build-essential state=present
-    apt: name=libpq-dev state=present
-    apt: name=python-dev state=present
-    apt: name=python-psycopg2 state=present
-    apt: name=python-pip state=present
-    apt: name=git state=present
+  - name: Instalar git
+    action: apt pkg=git state=installed
+  - name: Install Python
+    action: apt pkg=python-setuptools state=installed
+    action: apt pkg=python-dev state=installed
+  - name: Install PG
+    action: apt pkg=build-essential state=installed
+    action: apt pkg=libpq-dev state=installed
+    action: apt pkg=python-psycopg2 state=installed
   - name: Install Python Pip
-    action: apt pkg=python-pip
+    action: apt pkg=python-pip state=installed
   - name: Obtener aplicacion de git
     git: repo=https://github.com/hugobarzano/osl-computer-management.git  dest=~/Ansible clone=yes force=yes
   - name: Dar permisos de ejecucion
