@@ -18,9 +18,7 @@ class dispositivoTestCase(TestCase):
 	def test_remove_dispositivo(self):
 		d = Dispositivo(nombre_dispositivo='nombre_dispositivo1', fabricante='fabricante1',caracteristicas='caracteristicas dispositivo 1')
 		d.save()
-		#d_aux=default.objects.get(nombre_dispositivo='nombre_dispositivo1')
 		d.delete()
-		#d_aux2=Dispositivo.objects.get(nombre_dispositivo='nombre_dispositivo1')
 		self.assertEqual(d.nombre_dispositivo,"nombre_dispositivo1")
 		print("Dispositivo eliminado Correctamente")
 
