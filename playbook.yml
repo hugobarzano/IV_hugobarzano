@@ -1,0 +1,24 @@
+- hosts: localhost
+  sudo: yes
+  remote_user: vagrant
+  tasks:
+  - name: Actualizar sistema base
+    apt: update_cache=yes upgrade=dist
+  - name: Instalar paquetes necesarios
+    apt: name=python-setuptools state=present
+    apt: name=build-essential state=present
+    apt: name=python-dev state=present
+    apt: name=python-psycopg2 state=present
+    apt: name=libpq-dev state=present
+    apt: name=python-pip state=present
+    apt: name=git state=present
+  - name: Install Python Pip
+    action: apt pkg=python-pip
+  - name: Obtener aplicacion de git
+    git: repo=https://github.com/hugobarzano/osl-computer-management.git  dest=~/Ansible clone=yes force=yes
+  - name: Dar permisos de ejecucion
+    command: chmod -R +x ~/Ansible
+  - name: Instalar requisitos de la aplicacion
+    pip: requirements=~/Ansible/requirements.txt
+  - name: ejecutar
+    command: nohup sudo python ~/Ansible/manage.py runserver 0.0.0.0:80
