@@ -26,6 +26,7 @@ run:
 heroku:
 	wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh
 	heroku login
+	heroku apps:destroy --app --confirm heroku-deploy-hugo
 	heroku create heroku-deploy-hugo
 	heroku addons:create heroku-postgresql:hobby-dev
 	git add .
