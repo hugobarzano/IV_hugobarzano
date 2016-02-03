@@ -21,12 +21,13 @@ free:
 	sudo fuser -k 80/tcp
 
 run:
+	python manage.py collectstatic --noinput
 	sudo python manage.py runserver 0.0.0.0:80
 
 heroku:
 	wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh
 	heroku login
-	heroku apps:destroy --app heroku-deploy-hugo --confirm heroku-deploy-hugo
+	#heroku apps:destroy --app heroku-deploy-hugo --confirm heroku-deploy-hugo
 	heroku create heroku-deploy-hugo
 	heroku addons:create heroku-postgresql:hobby-dev
 	git add .
