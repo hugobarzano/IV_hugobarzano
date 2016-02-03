@@ -27,7 +27,9 @@ run:
 heroku:
 	wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh
 	heroku login
-	#heroku apps:destroy --app heroku-deploy-hugo --confirm heroku-deploy-hugo
+	heroku apps:destroy --app heroku-deploy-hugo --confirm heroku-deploy-hugo
+	heroku run echo Espera 15 segundos a liberar el nombre de dominio
+	heroku run sleep 15
 	heroku create heroku-deploy-hugo
 	heroku addons:create heroku-postgresql:hobby-dev
 	git add .
@@ -36,6 +38,8 @@ heroku:
 	heroku run python manage.py makemigrations --noinput
 	heroku run python manage.py migrate --noinput
 	heroku run python manage.py syncdb --noinput
+	heroku run python manage.py collectstatic --noinput
+	heroku run python manage.py test
 	heroku run chmod +x populate.py
 	heroku run python populate.py
 	heroku ps:scale web=1
