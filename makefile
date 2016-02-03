@@ -34,7 +34,7 @@ heroku:
 	#heroku addons:create heroku-postgresql:hobby-dev
 	git add .
 	git commit -m "despliegue en heroku"
-	git push heroku master
+	git push heroku heroku-deploy-hugo
 	heroku run python manage.py makemigrations --noinput
 	heroku run python manage.py migrate --noinput
 	heroku run python manage.py syncdb --noinput
