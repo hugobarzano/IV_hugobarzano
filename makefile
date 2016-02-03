@@ -26,11 +26,11 @@ run:
 heroku:
 	wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh
 	heroku login
-	heroku create
+	heroku create heroku-deploy-hugo
 	heroku addons:create heroku-postgresql:hobby-dev
 	git add .
 	git commit -m "despliegue en heroku"
-	git push heroku master
+	git push heroku master:heroku-deploy-hugo
 	heroku run python manage.py makemigrations --noinput
 	heroku run python manage.py migrate --noinput
 	heroku run python manage.py syncdb --noinput
