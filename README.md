@@ -142,3 +142,6 @@ Si queremos trabajar con algo mas potente, podemos utilizar la composición de s
 Ansible es una herramienta de automatización que permite configurar sistemas, implementar software y orquestar tareas complejas como por ejemplo despliegues continuos. He decidido utilizar ansible por su fiabilidad, facilidad de uso y seguridad. Para poder trabajar con ansible es necesario crear un archivo de aprovisionamiento.yml en el que detallar todas las dependencias, servicios y tareas que nuestra aplicación necesita para funcionar. Aunque puede usarse de manera independiente, si la combinamos con herramientas de creación y administración de entornos vistuales como por ejemplo Vagrant, podemos llegar a consegir grandes resultados.
 
 #Vagrant
+
+Vagrant es una herramienta open-source para la creación y configuración de entornos de desarrollo virtualizados.
+Vagrant proporciona entornos de trabajo fáciles de configurar, reproducibles y portátiles. Está desarrollado con Ruby y utiliza  el sistema  de virtualización Virtualbox de Oracle. Este proyecto tiene asociado un Vagrantfile culla función principal es la de  describir el tipo de máquinas necesarias para la aplicación, cómo configurarlas y como provisionarlas.   

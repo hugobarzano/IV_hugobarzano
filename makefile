@@ -48,7 +48,6 @@ install_docker:
 	sudo -i apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-key$
 	sudo -i echo /etc/apt/sources.list.d/docker.list deb https://apt.dockerproject.$
 	sudo -i apt-get update
-	sudo -i apt-get purge lxc-docker
 	sudo -i apt-cache policy docker-engine
 	sudo -i apt-get -y install linux-image-extra-$(uname -r)
 	sudo -i apt-get -y install linux-image-generic-lts-trusty
