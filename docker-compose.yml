@@ -2,11 +2,11 @@ db:
   image: postgres
 web:
   image: aplicacion
-  command: sh -c "cd /osl-computer-management && ls"
+  #command: sh -c "cd /osl-computer-management && ls"
   #command: sh -c "cd /osl-computer-management/ProyectoDjango && cat settings.py"
   #command: sh -c "cd /osl-computer-management && python manage.py syncdb --noinput"
-  command: sh -c "ifconfig"
-  command: sh -c "ifconfig && cd /osl-computer-management && python manage.py syncdb --noinput && sudo python manage.py runserver 0.0.0.0:80"
+  #command: sh -c "ifconfig"
+  command: sh -c "ifconfig && cd ~/osl-computer-management && python manage.py syncdb --noinput && sudo python manage.py runserver 0.0.0.0:80"
 
   ports:
     - "8000:8000"
@@ -15,5 +15,3 @@ web:
     - db
   environment:
     - COMPOSE=true
-  
-
