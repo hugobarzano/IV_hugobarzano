@@ -1,7 +1,7 @@
 db:
   image: postgres
 web:
-  image: aplicacion
+  image:  hugobarzano/osl-computer-management:computer-management
   #command: sh -c "cd /osl-computer-management && ls"
   #command: sh -c "cd /osl-computer-management/ProyectoDjango && cat settings.py"
   #command: sh -c "cd /osl-computer-management && python manage.py syncdb --noinput"
