@@ -19,11 +19,11 @@
     command: docker pull postgres
     #command: docker build -f ~/osl-computer-management/Dockerfile -t aplicacion --no-cache=true .
     #command: sleep 15
-    command: service docker restart
+    #command: service docker restart
   - name: muestra
     command: ls
     command: pwd
   - name: Enrrutamiento
-    command: sudo iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j DNAT --to-destination 172.17.0.1:8000
+    command: sudo iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j DNAT --to-destination 172.17.0.1:80
   - name: Ejecutar composicion de servicios
-    command: chdir=~/osl-computer-management docker-compose run --service-ports web
+    command: chdir=~/osl-computer-management docker-compose up
