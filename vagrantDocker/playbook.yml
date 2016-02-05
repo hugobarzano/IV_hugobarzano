@@ -1,0 +1,29 @@
+- hosts: localhost
+  sudo: yes
+  remote_user: vagrant
+  tasks:
+  - name: Actualizar sistema base
+    apt: update_cache=yes upgrade=dist
+  - name: Instalar git
+    action: apt pkg=git state=installed
+  - name: Install Python Pip
+    action: apt pkg=python-pip state=installed
+  - name: Obtener aplicacion de git
+    git: repo=https://github.com/hugobarzano/osl-computer-management.git  dest=~/osl-computer-management clone=yes force=yes
+  - name: Dar permisos de ejecucion
+    command: chmod -R +x ~/osl-computer-management
+  - name: Instalar docker y docker-compose
+    command: sh ~/osl-computer-management/deploy_docker.sh
+  - name: Descargar y construir imagenes necesarias
+    command: service docker restart
+    command: docker pull postgres
+    #command: docker build -f ~/osl-computer-management/Dockerfile -t aplicacion --no-cache=true .
+    #command: sleep 15
+    command: service docker restart
+  - name: muestra
+    command: ls
+    command: pwd
+  - name: Enrrutamiento
+    command: sudo iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j DNAT --to-destination 172.17.0.1:8000
+  - name: Ejecutar composicion de servicios
+    command: chdir=~/osl-computer-management docker-compose run web
