@@ -7,3 +7,4 @@ curl -sSL https://get.docker.com/gpg | sudo apt-key add -
 curl -sSL https://get.docker.com/ | sh
 sudo -i apt-get -y install python-pip
 sudo -i pip install docker-compose
+sudo -i pip install docker-py
