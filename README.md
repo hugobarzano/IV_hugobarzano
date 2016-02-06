@@ -162,4 +162,9 @@ Ambos despliegues utilizan vagrant
 Vagrant es una herramienta open-source para la creación y configuración de entornos de desarrollo virtualizados.
 Vagrant proporciona entornos de trabajo fáciles de configurar, reproducibles y portátiles. Está desarrollado con Ruby y utiliza  el sistema  de virtualización Virtualbox de Oracle. Este proyecto tiene asociado un fichero denominado Vagrantfile cuya función principal es la de  describir el tipo de máquinas necesarias para la aplicación, cómo configurarlas y como provisionarlas.
 
+Dependiendo del provedor de servicio, vagrant será configurado de una manera u otra. En mi caso, voy a utilizar azure, por lo que vagrant
+necesita el plugin Microsoft Azure provider to Vagrant. Con este plugin detallamos entre otras cosas nuestras credenciales en azure. Podemos consultar como configurar las credenciales aqui.
+
 Con vagrant no solo podemos trabajar individualmente maquina a máquina, podemos utilizar vagrant-multimachine para crear en paralelo dos maquinas virtuales y aprovisionarlas cada una como quereamos.
+
+Si deseamos aprender mas sobre Vagrant, podemos consultar este [documento](https://www.dropbox.com/s/ann1va5bqrgetvv/Vagrant.pdf?dl=1) 

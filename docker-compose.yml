@@ -6,8 +6,8 @@ web:
   #command: sh -c "cd /osl-computer-management/ProyectoDjango && cat settings.py"
   #command: sh -c "cd /osl-computer-management && python manage.py syncdb --noinput"
   #command: sh -c "ifconfig"
-  command: sh -c "pwd && ls && ifconfig && cd /osl-computer-management  python manage.py makemigrations --noinput && 	python manage.py migrate --noinput && python manage.py syncdb --noinput && sudo python manage.py runserver 0.0.0.0:80"
-
+  command: sh -c "ifconfig && cd /osl-computer-management && python manage.py syncdb --noinput && sudo python manage.py runserver 0.0.0.0:80"
+  
   ports:
     - "80:80"
     - "5432:5432"

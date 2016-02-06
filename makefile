@@ -68,7 +68,8 @@ docker:
 docker_compose:
 	sudo service docker restart
 	sudo docker pull postgres
-	sudo docker build -f Dockerfile -t aplicacion --no-cache=true .
+	sudo docker pull hugobarzano/osl-computer-management:computer-management
+	sudo docker-compose up
 	echo Voy a esperar 10 segundos a la base de datos
 	sleep 10
 	sudo docker-compose run web
