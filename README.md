@@ -143,28 +143,27 @@ Ansible es una herramienta de automatización que permite configurar sistemas, i
 
 ####Playbook para aprovisionamiento de contenedores
 
-El primer playbook que he creado para la aplicación se puede consultar aqui. Este playbook actualiza el sistema base, instala dependencias
-instala docker, instala la extensión docker-compose, descarga contenedores funcionales y los ejecuta. Para realizar este tipo de despliegue
-solo hay que ejecutar
+El primer playbook que he creado para la aplicación se puede consultar [aqui](https://github.com/hugobarzano/osl-computer-management/blob/master/vagrantDocker/playbook.yml). Este playbook actualiza el sistema base, instala dependencias, instala docker, instala la extensión docker-compose, descarga contenedores funcionales y los ejecuta. El vagrantfile asociado es [este](https://github.com/hugobarzano/osl-computer-management/blob/master/vagrantDocker/Vagrantfile)
+Para realizar este tipo de despliegue solo hay que ejecutar:
 
 		make docker_deploy
 
 ####Playbook para aprovisionamiento de aplicacion
 
-El segundo playbook con el que cuenta la aplicacion se puede consultar aqui. Este playbook, actualizar sistema base, instala git, instala Python, incroniza la base de datos y ejecuta la aplicacion. Para realizar este tipo de despliegue solo hay que ejecutar:
+El segundo playbook con el que cuenta la aplicacion se puede consultar [aqui](https://github.com/hugobarzano/osl-computer-management/blob/master/vagrantSimple/playbook.yml). Este playbook, actualizar sistema base, instala git, instala Python, incroniza la base de datos y ejecuta la aplicacion. El vagrantfile asociado es [este](https://github.com/hugobarzano/osl-computer-management/blob/master/vagrantSimple/Vagrantfile)
+Para realizar este tipo de despliegue solo hay que ejecutar:
 
 		make ansible_deploy
 
-Ambos despliegues utilizan vagrant
 
 #Vagrant
 
 Vagrant es una herramienta open-source para la creación y configuración de entornos de desarrollo virtualizados.
-Vagrant proporciona entornos de trabajo fáciles de configurar, reproducibles y portátiles. Está desarrollado con Ruby y utiliza  el sistema  de virtualización Virtualbox de Oracle. Este proyecto tiene asociado un fichero denominado Vagrantfile cuya función principal es la de  describir el tipo de máquinas necesarias para la aplicación, cómo configurarlas y como provisionarlas.
+Vagrant proporciona entornos de trabajo fáciles de configurar, reproducibles y portátiles. Está desarrollado con Ruby y utiliza  el sistema  de virtualización Virtualbox de Oracle. Este proyecto tiene asociado un fichero denominado Vagrantfile cuya función principal es la de  describir el tipo de máquinas necesarias para la aplicación, cómo configurarlas y como provisionarlas. Los despliegues del punto anterior utilizan este Vagrantfile()
 
 Dependiendo del provedor de servicio, vagrant será configurado de una manera u otra. En mi caso, voy a utilizar azure, por lo que vagrant
-necesita el plugin Microsoft Azure provider to Vagrant. Con este plugin detallamos entre otras cosas nuestras credenciales en azure. Podemos consultar como configurar las credenciales aqui.
+necesita el plugin Microsoft Azure provider to Vagrant. Con este plugin detallamos entre otras cosas nuestras credenciales en azure. Podemos consultar como configurar las credenciales [aqui](https://github.com/hugobarzano/osl-computer-management/blob/master/documentacion/credenciales.md)
 
-Con vagrant no solo podemos trabajar individualmente maquina a máquina, podemos utilizar vagrant-multimachine para crear en paralelo dos maquinas virtuales y aprovisionarlas cada una como quereamos.
+Con vagrant no solo podemos trabajar individualmente maquina a máquina, podemos utilizar vagrant-multimachine para crear en paralelo dos maquinas virtuales y aprovisionarlas cada una como quereamos. Puede consular el vagrantfile para la creación y aprovisionamiento de dos maquinas independientes aqui[]()
 
-Si deseamos aprender mas sobre Vagrant, podemos consultar este [documento](https://www.dropbox.com/s/ann1va5bqrgetvv/Vagrant.pdf?dl=1) 
+Si deseamos aprender mas sobre Vagrant, podemos consultar este [documento](https://www.dropbox.com/s/ann1va5bqrgetvv/Vagrant.pdf?dl=1)
