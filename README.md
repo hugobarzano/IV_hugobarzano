@@ -141,6 +141,19 @@ Si queremos trabajar con algo mas potente, podemos utilizar la composición de s
 
 Ansible es una herramienta de automatización que permite configurar sistemas, implementar software y orquestar tareas complejas como por ejemplo despliegues continuos. He decidido utilizar ansible por su fiabilidad, facilidad de uso y seguridad. Para poder trabajar con ansible es necesario crear un archivo de aprovisionamiento.yml en el que detallar todas las dependencias, servicios y tareas que nuestra aplicación necesita para funcionar. Aunque puede usarse de manera independiente, si la combinamos con herramientas de creación y administración de entornos vistuales como por ejemplo Vagrant, podemos llegar a consegir grandes resultados.
 
+####Playbook para aprovisionamiento de contenedores
+
+El primer playbook que he creado para la aplicación se puede consultar aqui. Este playbook actualiza el sistema base, instala dependencias
+instala docker, instala la extensión docker-compose, descarga contenedores funcionales y los ejecuta.
+
+####Playbook para aprovisionamiento de aplicacion
+
+El segundo playbook con el que cuenta la aplicacion se puede consultar aqui. Este playbook, actualizar sistema base, instala git, instala Python, incroniza la base de datos y ejecuta la aplicacion.
+
+ 
+
+
+
 #Vagrant
 
 Vagrant es una herramienta open-source para la creación y configuración de entornos de desarrollo virtualizados.

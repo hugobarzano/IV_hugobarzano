@@ -57,12 +57,13 @@ install_docker:
 	sudo -i apt-get -y install python-pip
 	sudo -i pip install docker-compose
 
-
+	python manage.py makemigrations --noinput
+	python manage.py migrate --noinput
 
 docker:
 	sudo service docker restart
 	sudo docker build -f Dockerfile -t aplicacion --no-cache=true .
-	sudo docker run -t -i aplicacion sh -c "ifconfig && cd /osl-computer-management && python manage.py syncdb --noinput && sudo python manage.py runserver 0.0.0.0:80"
+	sudo docker run -t -i aplicacion sh -c "ifconfig && cd /osl-computer-management &&  python manage.py makemigrations --noinput && 	python manage.py migrate --noinput && python manage.py syncdb --noinput && python populate.py && sudo python manage.py runserver 0.0.0.0:80"
 
 docker_compose:
 	sudo service docker restart
@@ -71,3 +72,15 @@ docker_compose:
 	echo Voy a esperar 10 segundos a la base de datos
 	sleep 10
 	sudo docker-compose run web
+
+docker_deploy:
+	cd vagrantDocker/ && vagrant up --provider=azure
+
+docker_provision:
+	cd vagrantDocker/ && vagrant provision
+
+ansible_deploy:
+	cd vagrantSimple/ && vagrant up --provider=azure
+
+ansible_provision:
+	cd vagrantSimple/ && vagrant provision

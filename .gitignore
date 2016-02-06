@@ -10,5 +10,7 @@
 *~
 *.#
 *.pyc
-
+build/
+.vagrant
+ComputerManagemnt.egg-info
 
