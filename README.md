@@ -179,11 +179,33 @@ Si queremos destruir el despliegue podemos hacerlo mediante
 #Vagrant
 
 Vagrant es una herramienta open-source para la creación y configuración de entornos de desarrollo virtualizados.
-Vagrant proporciona entornos de trabajo fáciles de configurar, reproducibles y portátiles. Está desarrollado con Ruby y utiliza  el sistema  de virtualización Virtualbox de Oracle. Este proyecto tiene asociado un fichero denominado Vagrantfile cuya función principal es la de  describir el tipo de máquinas necesarias para la aplicación, cómo configurarlas y como provisionarlas. Los despliegues del punto anterior utilizan este Vagrantfile()
+Vagrant proporciona entornos de trabajo fáciles de configurar, reproducibles y portátiles. Está desarrollado con Ruby y utiliza  el sistema  de virtualización Virtualbox de Oracle. Este proyecto tiene asociado un fichero denominado Vagrantfile cuya función principal es la de  describir el tipo de máquinas necesarias para la aplicación, cómo configurarlas y como provisionarlas.
 
 Dependiendo del provedor de servicio, vagrant será configurado de una manera u otra. En mi caso, voy a utilizar azure, por lo que vagrant
 necesita el plugin Microsoft Azure provider to Vagrant. Con este plugin detallamos entre otras cosas nuestras credenciales en azure. Podemos consultar como configurar las credenciales [aqui](https://github.com/hugobarzano/osl-computer-management/blob/master/documentacion/credenciales.md)
 
-Con vagrant no solo podemos trabajar individualmente maquina a máquina, podemos utilizar vagrant-multimachine para crear en paralelo dos maquinas virtuales y aprovisionarlas cada una como quereamos. Puede consular el vagrantfile para la creación y aprovisionamiento de dos maquinas independientes aqui[]()
+Con vagrant no solo podemos trabajar individualmente maquina a máquina, podemos utilizar vagrant-multimachine para crear en paralelo N máquinas virtuales y aprovisionarlas cada una como queramos. Puede consular el vagrantfile para la creación y aprovisionamiento de dos maquinas independientes aqui[]()
+
+Podemos realizar un despliege multiple mediante
+
+	make multi_deploy
+
+Podemos comprobar por la url que las maquinas son independientes entre si y que aunque estan aprosionadas con el mismo contenido que los desplieges anteriores, son totalmente independientes y funcionales:
+
+Host 1: [computermanagementansibleapp.cloudapp.net](computermanagementansibleapp.cloudapp.net)
+
+Host 2: [computerManagementDockerApp.cloudapp.net](computerManagementDockerApp.cloudapp.net:)
+
+El aprovisionamiento de las maquinas creadas de forma multiple es necesario realizarlo de manera individual, por eso, si queremos aprovisionar la maquina 1, que tiene la aplicacion a pelo, podemos hacerlo mediante
+
+	make provision_machine1
+
+Si queremos aprovisionar la maquina 2, que tiene la aplicacion en contenedores, podemos hacerlo mediante
+
+	make provision_machine2
+
+Si queremos destuir el despliegue multiple, basta con ejecutar
+
+	make multi_destroy
 
 Si deseamos aprender mas sobre Vagrant, podemos consultar este [documento](https://www.dropbox.com/s/ann1va5bqrgetvv/Vagrant.pdf?dl=1)

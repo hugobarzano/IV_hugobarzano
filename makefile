@@ -99,3 +99,15 @@ ansible_provision:
 
 ansible_destroy:
 	cd vagrantSimple/ && vagrant destroy
+
+multi_deploy:
+	cd vagrantMultiMachine/ && vagrant up --provider=azure
+
+provision_machine1:
+	cd vagrantMultiMachine/ && vagrant provision localhost
+
+provision_machine2:
+	cd vagrantMultiMachine/ && vagrant provision localhost2
+
+multi_destroy:
+	cd vagrantMultiMachine/ && vagrant destroy

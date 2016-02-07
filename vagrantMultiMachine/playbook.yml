@@ -28,5 +28,5 @@
     command: python ~/Ansible/manage.py collectstatic --noinput
     command: python ~/Ansible/populate.py
   - name: ejecutar
-    command: fuser -k 80/tcp
+    #command: sudo fuser -k 80/tcp
     command: nohup sudo python ~/Ansible/manage.py runserver 0.0.0.0:80
