@@ -130,11 +130,15 @@ Podemos descargar el entorno mediante la orden
 
 ###Trabajando con Docker
 
-Para trabajar con docker en nuestro equipo, es necesario ejecutar el scrip de instalación como súper usuario
+Para trabajar con docker en nuestro equipo, es necesario instalar docke mediante scrip de instalación como súper usuario
 
 	sudo su
 	chmod +x install_docker.sh
 	./install_docker.sh
+
+o mediante makefile
+
+	make install_docker
 
 El entorno almacenado en Docker hub es una imagen básica pre-construida utilizando el servicio sqlite3.
 Para trabajar con este entorno podemos utilizar la herramienta de construcción makefile
@@ -152,11 +156,15 @@ Ansible es una herramienta de automatización que permite configurar sistemas, i
 
 ####Playbook para aprovisionamiento de contenedores
 
-El primer playbook que he creado para la aplicación se puede consultar [aquí](https://github.com/hugobarzano/osl-computer-management/blob/master/vagrantDocker/playbook.yml). Este playbook actualiza el sistema base, instala dependencias, instala docker, instala la extensión docker-compose, descarga contenedores funcionales y los ejecuta. El vagrantfile asociado es [este](https://github.com/hugobarzano/osl-computer-management/blob/master/vagrantDocker/Vagrantfile)
+El primer playbook que he creado para la aplicación se puede consultar [aquí](https://github.com/hugobarzano/osl-computer-management/blob/master/vagrantDocker/playbook.yml).
+Este playbook actualiza el sistema base, instala dependencias, instala docker, instala la extensión docker-compose, descarga contenedores funcionales y los ejecuta.
+El vagrantfile asociado es [este](https://github.com/hugobarzano/osl-computer-management/blob/master/vagrantDocker/Vagrantfile)
+
 Enlace al despliegue: [App](http://computermanagementdocker.cloudapp.net/)
+
 Para realizar este tipo de despliegue solo hay que ejecutar:
 
-		make docker_deploy
+	make docker_deploy
 
 Si realizamos algún cambio en los contenedores o en los fuentes de la aplicación, podemos aprovisionarlos mediante
 
@@ -168,7 +176,9 @@ Si queremos destruir el despliegue de contenedores podemos hacerlo mediante
 
 ####Playbook para aprovisionamiento de aplicación
 
-El segundo playbook con el que cuenta la aplicación se puede consultar [aquí](https://github.com/hugobarzano/osl-computer-management/blob/master/vagrantSimple/playbook.yml). Este playbook, actualizar sistema base, instala git, instala Python, incroniza la base de datos y ejecuta la aplicacion. El vagrantfile asociado es [este](https://github.com/hugobarzano/osl-computer-management/blob/master/vagrantSimple/Vagrantfile)
+El segundo playbook con el que cuenta la aplicación se puede consultar [aquí](https://github.com/hugobarzano/osl-computer-management/blob/master/vagrantSimple/playbook.yml).
+Este playbook, actualizar sistema base, instala git, instala Python, incroniza la base de datos y ejecuta la aplicacion.
+El vagrantfile asociado es [este](https://github.com/hugobarzano/osl-computer-management/blob/master/vagrantSimple/Vagrantfile)
 Enlace al despliegue: [App](http://computermanagementansible.cloudapp.net/)
 Para realizar este tipo de despliegue solo hay que ejecutar:
 
