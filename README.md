@@ -176,6 +176,8 @@ Si queremos destruir el despliegue podemos hacerlo mediante
 	make ansible_destroy
 
 
+NOTA: Aunque en el proceso de aprovisionamiento, sale un fallo en el ultimo paso indicando que el puerto esta ocupado, el aprovisionamiento se lleva a cabo correctamente, lo que ocurre es que el servidor Django sigue ejecutandose mientras integramos nuevos fuentes.  
+
 #Vagrant
 
 Vagrant es una herramienta open-source para la creación y configuración de entornos de desarrollo virtualizados.
@@ -192,9 +194,9 @@ Podemos realizar un despliege multiple mediante
 
 Podemos comprobar por la url que las maquinas son independientes entre si y que aunque estan aprosionadas con el mismo contenido que los desplieges anteriores, son totalmente independientes y funcionales:
 
-Host 1: [computermanagementansibleapp.cloudapp.net](computermanagementansibleapp.cloudapp.net)
+Host 1: [computermanagementansibleapp.cloudapp.net](http://computermanagementansibleapp.cloudapp.net/)
 
-Host 2: [computerManagementDockerApp.cloudapp.net](computerManagementDockerApp.cloudapp.net:)
+Host 2: [computerManagementDockerApp.cloudapp.net](http://computermanagementdockerapp.cloudapp.net/)
 
 El aprovisionamiento de las maquinas creadas de forma multiple es necesario realizarlo de manera individual, por eso, si queremos aprovisionar la maquina 1, que tiene la aplicacion a pelo, podemos hacerlo mediante
 
@@ -203,6 +205,9 @@ El aprovisionamiento de las maquinas creadas de forma multiple es necesario real
 Si queremos aprovisionar la maquina 2, que tiene la aplicacion en contenedores, podemos hacerlo mediante
 
 	make provision_machine2
+
+	NOTA: Aunque en el proceso de aprovisionamiento, salte un fallo en el ultimo paso indicando que el puerto esta ocupado, el aprovisionamiento se lleva a cabo correctamente, lo que ocurre es que el servidor Django sigue ejecutandose mientras integramos nuevos fuentes y por eso el comando que pone la aplicacion a ejecutar en la creación, ya esta ejecutando la aplicación en el aprovisionamiento.  
+
 
 Si queremos destuir el despliegue multiple, basta con ejecutar
 
