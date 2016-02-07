@@ -148,6 +148,7 @@ Ansible es una herramienta de automatización que permite configurar sistemas, i
 ####Playbook para aprovisionamiento de contenedores
 
 El primer playbook que he creado para la aplicación se puede consultar [aqui](https://github.com/hugobarzano/osl-computer-management/blob/master/vagrantDocker/playbook.yml). Este playbook actualiza el sistema base, instala dependencias, instala docker, instala la extensión docker-compose, descarga contenedores funcionales y los ejecuta. El vagrantfile asociado es [este](https://github.com/hugobarzano/osl-computer-management/blob/master/vagrantDocker/Vagrantfile)
+Enlace al despliege: [App](http://computermanagementdocker.cloudapp.net/)
 Para realizar este tipo de despliegue solo hay que ejecutar:
 
 		make docker_deploy
@@ -163,9 +164,10 @@ Si queremos destruir el despliegue de contenedores podmeos hacerlo mediante
 ####Playbook para aprovisionamiento de aplicacion
 
 El segundo playbook con el que cuenta la aplicacion se puede consultar [aqui](https://github.com/hugobarzano/osl-computer-management/blob/master/vagrantSimple/playbook.yml). Este playbook, actualizar sistema base, instala git, instala Python, incroniza la base de datos y ejecuta la aplicacion. El vagrantfile asociado es [este](https://github.com/hugobarzano/osl-computer-management/blob/master/vagrantSimple/Vagrantfile)
+Enlace al despliege: [App](http://computermanagementansible.cloudapp.net/)
 Para realizar este tipo de despliegue solo hay que ejecutar:
 
-		make ansible_deploy
+	make ansible_deploy
 
 Si realizamos algun cambio sobre los fuentes de la aplicacion podemos aprovisionarla mediante
 
@@ -176,7 +178,7 @@ Si queremos destruir el despliegue podemos hacerlo mediante
 	make ansible_destroy
 
 
-NOTA: Aunque en el proceso de aprovisionamiento, sale un fallo en el ultimo paso indicando que el puerto esta ocupado, el aprovisionamiento se lleva a cabo correctamente, lo que ocurre es que el servidor Django sigue ejecutandose mientras integramos nuevos fuentes.  
+NOTA: Aunque en el proceso de aprovisionamiento, salte un fallo en el ultimo paso indicando que el puerto esta ocupado, el aprovisionamiento se lleva a cabo correctamente, lo que ocurre es que el servidor Django sigue ejecutandose mientras integramos nuevos fuentes y por eso el comando que pone la aplicacion a ejecutar en la creación, ya esta ejecutando la aplicación en el aprovisionamiento.
 
 #Vagrant
 
@@ -206,7 +208,8 @@ Si queremos aprovisionar la maquina 2, que tiene la aplicacion en contenedores, 
 
 	make provision_machine2
 
-	NOTA: Aunque en el proceso de aprovisionamiento, salte un fallo en el ultimo paso indicando que el puerto esta ocupado, el aprovisionamiento se lleva a cabo correctamente, lo que ocurre es que el servidor Django sigue ejecutandose mientras integramos nuevos fuentes y por eso el comando que pone la aplicacion a ejecutar en la creación, ya esta ejecutando la aplicación en el aprovisionamiento.  
+
+NOTA: Aunque en el proceso de aprovisionamiento, salte un fallo en el ultimo paso indicando que el puerto esta ocupado, el aprovisionamiento se lleva a cabo correctamente, lo que ocurre es que el servidor Django sigue ejecutandose mientras integramos nuevos fuentes y por eso el comando que pone la aplicacion a ejecutar en la creación, ya esta ejecutando la aplicación en el aprovisionamiento.  
 
 
 Si queremos destuir el despliegue multiple, basta con ejecutar
