@@ -1,7 +1,8 @@
 #Makefile
 
 install:
-	python setup.py install
+	sudo chmod +x install.sh
+	sudo ./install.sh
 
 test:
 	python manage.py test
@@ -79,6 +80,7 @@ install_vagrant:
 	sudo apt-get install -y virtualbox virtualbox-dkms
 	sudo apt-get install -y vagrant
 	vagrant plugin install vagrant-azure
+	vagrant box add azure https://github.com/msopentech/vagrant-azure/raw/master/dummy.box
 
 docker_deploy:
 	cd vagrantDocker/ && vagrant up --provider=azure
