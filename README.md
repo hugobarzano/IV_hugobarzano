@@ -3,8 +3,9 @@
 ##Proyecto para Infraestructura Virtual 2015/2016
 [![Build Status](https://travis-ci.org/hugobarzano/osl-computer-management.svg?branch=master)](https://travis-ci.org/hugobarzano/osl-computer-management) [![Build Status](https://snap-ci.com/hugobarzano/osl-computer-management/branch/master/build_image)](https://snap-ci.com/hugobarzano/osl-computer-management/branch/master)
 [![Heroku](https://www.herokucdn.com/deploy/button.png)](https://computer-management.herokuapp.com/)
+[![DockerHub](https://www.dropbox.com/s/fl5hrbbjm4g2jec/docker_l.png?dl=1))](https://hub.docker.com/r/hugobarzano/osl-computer-management/)
 [![Azure](https://www.dropbox.com/s/oqur6k70poyscxj/azure.png?dl=1)](http://computermanagementansible.cloudapp.net/)
-[![Azure2](https://www.dropbox.com/s/v50imf9aqkxvhgr/docker-machine-azure.png?dl=1)](http://computermanagementdocker.cloudapp.net/)
+[![Azure2](https://www.dropbox.com/s/p1dfk1w5wr1u1wr/azure_docker.jpg?dl=1)](http://computermanagementdocker.cloudapp.net/)
 
 
 
