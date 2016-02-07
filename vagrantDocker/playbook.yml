@@ -26,5 +26,6 @@
   - name: Enrrutamiento
     command: sudo iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j DNAT --to-destination 172.17.0.1:80
   - name: Ejecutar composicion de servicios
-    command: chdir=~/osl-computer-management docker-compose up
-    command: chdir=~/osl-computer-management docker-compose run web
+    command: chdir=~/osl-computer-management make docker_compose
+    #command: chdir=~/osl-computer-management docker-compose up
+    #command: chdir=~/osl-computer-management docker-compose run web

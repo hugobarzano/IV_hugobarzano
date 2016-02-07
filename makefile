@@ -86,8 +86,14 @@ docker_deploy:
 docker_provision:
 	cd vagrantDocker/ && vagrant provision
 
+docker_destroy:
+	cd vagrantDocker/ && vagrant destroy
+
 ansible_deploy:
 	cd vagrantSimple/ && vagrant up --provider=azure
 
 ansible_provision:
 	cd vagrantSimple/ && vagrant provision
+
+ansible_destroy:
+	cd vagrantSimple/ && vagrant destroy

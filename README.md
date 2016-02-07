@@ -10,17 +10,14 @@ Se trata de realizar la infraestructura virtual necesaria para levantar una apli
 
 ###Infraestructura
 
-En una primera aproximación del problema, el proyecto contará con los siguientes elementos:
+El proyecto cuenta con la siguiente infraestructura:
 
-- Servidor web para dar servicio
-- Servidores de bases de datos( Datos equipos informáticos e informes)
-- Servidores Azure, Openshift o similar
+- Framework de alto nivel Django
+- Sqlite3 y PostgreSQL como motores de bases de datos
 - Integración continua
-- Framework de alto nivel, como por ejemplo Django
-- Servicios externos
-
-En cuanto avance más en la asignatura, es posible que añada o elimine algún elemento.
-
+- Heroku como Platform as a Service
+- Azure como Infrastructure as a service
+- Servicios externos como Easy Maps
 
 ###Inscripción en el concurso de software libre
 
@@ -34,40 +31,41 @@ Twitter: @comp_mana
 
 ### Herramienta de Construcción
 
-Para automatizar el proceso de instalación,testeo, documentación y ejecución utilizo el siguiente makefile:
+Para automatizar las funcionalidades de la infraestructura utilizo este [makefile](https://github.com/hugobarzano/osl-computer-management/blob/master/makefile). Es capaz de:
 
-	install:
-		sudo python setup.py install
+####Trabajando en local
+	make install: instala todo lo necesario para ejecucion local
+	make install_docker: instala docker y docker-compose
+	make install_vagrant: instala vagrant, virtual box y plugins para vagrant
 
-	test:
-		python manage.py test
+	make inicializar: Crea la base de datos y las sincroniza
+	make run: ejecuta la aplicacion
+	make docker: Genera una imagen funcional utilizando un dockerfile y la arranca
+	make docker_compose: Utiliza imagenes funcionales para componer servicios y arrancarlos
 
-	doc:
-		 epydoc --html ComputerManagement/
-
-	run:
-		sudo python manage.py runserver 0.0.0.0:80 &
+	make doc: Genera la documentacion
+	make free: libera el puerto 80, matando cualquier proceso que lo use
 
 
-### Integración Continua
+####Trabajando en la nube
+	make heroku: despliega la aplicacion en un PaaS
+
+	make ansible_deploy: despliega la aplicacion en un IaaS
+	make ansible_provision: Aprovisiona la aplicacion en el IaaS
+	make ansible_destroy: Destrulle el despliegue mediante playbooks
+
+	make docker_deploy: despliega la aplicacion en un IaaS mediante contenedores
+	make docker_provision: aprovisiona la aplicacion en el IaaS mediante contenedores
+	make docker_destroy: Destrulle el despliegue mediante contenedores
+
+
+
+###Integración continua: Travis
+
+El proceso de integración continua tiene como objetivo principal comprobar que cada actualización del código fuente no genere problemas en una aplicación que se está desarrollando.
 
 Para que el proyecto cuente con integración continua he utilizado [travis](https://travis-ci.org/) por su fácil sincronización con github.
-En la web de travis, debemos indicar que repositorios queremos relacionar e incluir en ellos su correspondiente .travis.yml
-![Travis](https://travis-ci.org/hugobarzano/osl-computer-management.svg?branch=master)
-
-	language: python
-	python:
- 		- "2.7"
-
-	install:
- 		- sudo apt-get install python-dev
- 		- pip install --upgrade pip
- 		- pip install Django
-
-	script:
- 		- python manage.py test
-
-
+En la web de travis, debemos indicar que repositorios queremos relacionar e incluir en ellos su correspondiente [.travis.yml](https://github.com/hugobarzano/osl-computer-management/blob/master/.travis.yml)
 
 
 ### PaaS: Heroku
@@ -92,7 +90,10 @@ Para que heroku coja nuestros modelos es necesario ejecutar:
 	 heroku run python manage.py syncdb
 
 La aplicación cuenta con funcionalidades para consultar, crear, modificar y eliminar dispositivos utilizando **Django REST framework**
-Para testear estas funcionalidades he simulado un navegador-cliente utilizando APITestCase y RequestFactory
+Para testear estas funcionalidades he simulado un navegador-cliente utilizando APITestCase y RequestFactory.
+Podemos realizar el despliege en heroku de manera automática mediante:
+
+	make heroku
 
 ###Fabric: Despliegue remoto
 
@@ -101,8 +102,8 @@ Para testear estas funcionalidades he simulado un navegador-cliente utilizando A
 Mediante el uso de Fabric he creado un [fabfile.py](https://github.com/hugobarzano/osl-computer-management/blob/master/fabfile.py) en el que describo las distintas tareas de administración y despliegue que se pueden llevar a cabo de manera remota.
 Puedes consultar los detalles de como he realizado el despliegue remoto [aquí](https://github.com/hugobarzano/osl-computer-management/blob/master/documentacion/fabric.md)
 
-Para probar el entorno de manera online, he puesto a disposición del usuario una [maquina virtual azure](http://computer-management.westeurope.cloudapp.azure.com/)
-Puedes consultar los detalles de como he creado y configurado la máquina azure [aquí](https://github.com/hugobarzano/osl-computer-management/blob/master/documentacion/azure.md)
+Para probar el depliegue rentorno utilizando fabric, es necesarios disponer de una maquina virtual virgen.
+Puedes consultar los detalles de como crear y configurar máquinas azure desde el portal de administración [aquí](https://github.com/hugobarzano/osl-computer-management/blob/master/documentacion/azure.md)
 
 
 ###Docker Hub
@@ -148,12 +149,28 @@ Para realizar este tipo de despliegue solo hay que ejecutar:
 
 		make docker_deploy
 
+Si realizamos algun cambio en los contenedores o en los fuentes de la aplicación, podemos aprovisionarlos mediante
+
+	make docker_provision
+
+Si queremos destruir el despliegue de contenedores podmeos hacerlo mediante
+
+	make docker_destroy
+
 ####Playbook para aprovisionamiento de aplicacion
 
 El segundo playbook con el que cuenta la aplicacion se puede consultar [aqui](https://github.com/hugobarzano/osl-computer-management/blob/master/vagrantSimple/playbook.yml). Este playbook, actualizar sistema base, instala git, instala Python, incroniza la base de datos y ejecuta la aplicacion. El vagrantfile asociado es [este](https://github.com/hugobarzano/osl-computer-management/blob/master/vagrantSimple/Vagrantfile)
 Para realizar este tipo de despliegue solo hay que ejecutar:
 
 		make ansible_deploy
+
+Si realizamos algun cambio sobre los fuentes de la aplicacion podemos aprovisionarla mediante
+
+	make ansible_provision
+
+Si queremos destruir el despliegue podemos hacerlo mediante
+
+	make ansible_destroy
 
 
 #Vagrant
