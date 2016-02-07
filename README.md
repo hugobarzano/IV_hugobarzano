@@ -3,7 +3,10 @@
 ##Proyecto para Infraestructura Virtual 2015/2016
 [![Build Status](https://travis-ci.org/hugobarzano/osl-computer-management.svg?branch=master)](https://travis-ci.org/hugobarzano/osl-computer-management) [![Build Status](https://snap-ci.com/hugobarzano/osl-computer-management/branch/master/build_image)](https://snap-ci.com/hugobarzano/osl-computer-management/branch/master)
 [![Heroku](https://www.herokucdn.com/deploy/button.png)](https://computer-management.herokuapp.com/)
-[![Azure](https://www.dropbox.com/s/oqur6k70poyscxj/azure.png?dl=1)](http://computer-management.westeurope.cloudapp.azure.com/)
+[![Azure](https://www.dropbox.com/s/oqur6k70poyscxj/azure.png?dl=1)](http://computermanagementansible.cloudapp.net/)
+[![Azure2](https://www.dropbox.com/s/v50imf9aqkxvhgr/docker-machine-azure.png?dl=1)](http://computermanagementdocker.cloudapp.net/)
+
+
 
 ###Descripción
 Se trata de realizar la infraestructura virtual necesaria para levantar una aplicación web que se encargue de controlar y automatizar la tarea de administrar y controlar la entrega y recogida de equipos informáticos por la Oficina de Software Libre así como el proceso de catalogarlos adecuadamente y generar informes.
