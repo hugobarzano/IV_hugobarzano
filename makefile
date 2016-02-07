@@ -75,13 +75,6 @@ docker_compose:
 	sleep 10
 	sudo docker-compose run web
 
-install_vagrant:
-	sudo -i apt-get update
-	sudo apt-get install -y virtualbox virtualbox-dkms
-	sudo apt-get install -y vagrant
-	vagrant plugin install vagrant-azure
-	vagrant box add azure https://github.com/msopentech/vagrant-azure/raw/master/dummy.box
-
 docker_deploy:
 	cd vagrantDocker/ && vagrant up --provider=azure
 

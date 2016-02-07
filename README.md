@@ -3,7 +3,7 @@
 ##Proyecto para Infraestructura Virtual 2015/2016
 [![Build Status](https://travis-ci.org/hugobarzano/osl-computer-management.svg?branch=master)](https://travis-ci.org/hugobarzano/osl-computer-management) [![Build Status](https://snap-ci.com/hugobarzano/osl-computer-management/branch/master/build_image)](https://snap-ci.com/hugobarzano/osl-computer-management/branch/master)
 [![Heroku](https://www.herokucdn.com/deploy/button.png)](https://computer-management.herokuapp.com/)
-[![DockerHub](https://www.dropbox.com/s/fl5hrbbjm4g2jec/docker_l.png?dl=1))](https://hub.docker.com/r/hugobarzano/osl-computer-management/)
+[![DockerHub](https://www.dropbox.com/s/fl5hrbbjm4g2jec/docker_l.png?dl=1)](https://hub.docker.com/r/hugobarzano/osl-computer-management/)
 [![Azure](https://www.dropbox.com/s/oqur6k70poyscxj/azure.png?dl=1)](http://computermanagementansible.cloudapp.net/)
 [![Azure2](https://www.dropbox.com/s/p1dfk1w5wr1u1wr/azure_docker.jpg?dl=1)](http://computermanagementdocker.cloudapp.net/)
 
@@ -18,7 +18,7 @@ El proyecto cuenta con la siguiente infraestructura:
 
 - Framework de alto nivel Django
 - Sqlite3 y PostgreSQL como motores de bases de datos
-- Integración continua
+- Integración Continua
 - Heroku como Platform as a Service
 - Azure como Infrastructure as a service
 - Servicios externos como Easy Maps
@@ -38,30 +38,34 @@ Twitter: @comp_mana
 Para automatizar las funcionalidades de la infraestructura utilizo este [makefile](https://github.com/hugobarzano/osl-computer-management/blob/master/makefile). Es capaz de:
 
 ####Trabajando en local
-	make install: instala todo lo necesario para ejecucion local
-	make install_docker: instala docker y docker-compose
-	make install_vagrant: instala vagrant, virtual box y plugins para vagrant
+	make install: Instala todo lo necesario para ejecución local
+	make install_docker: Instala docker y docker-compose
+
 
 	make inicializar: Crea la base de datos y las sincroniza
-	make run: ejecuta la aplicacion
+	make run: Ejecuta la aplicación
 	make docker: Genera una imagen funcional utilizando un dockerfile y la arranca
-	make docker_compose: Utiliza imagenes funcionales para componer servicios y arrancarlos
+	make docker_compose: Utiliza imágenes funcionales para componer servicios y arrancarlos
 
-	make doc: Genera la documentacion
-	make free: libera el puerto 80, matando cualquier proceso que lo use
+	make doc: Genera la documentación
+	make free: Libera el puerto 80, matando cualquier proceso que lo use
 
 
 ####Trabajando en la nube
-	make heroku: despliega la aplicacion en un PaaS
+	make heroku: Despliega la aplicación en un PaaS
 
-	make ansible_deploy: despliega la aplicacion en un IaaS
-	make ansible_provision: Aprovisiona la aplicacion en el IaaS
-	make ansible_destroy: Destrulle el despliegue mediante playbooks
+	make ansible_deploy: Despliega la aplicación en un IaaS
+	make ansible_provision: Aprovisiona la aplicación en el IaaS
+	make ansible_destroy: Destruye el despliegue mediante playbooks
 
-	make docker_deploy: despliega la aplicacion en un IaaS mediante contenedores
-	make docker_provision: aprovisiona la aplicacion en el IaaS mediante contenedores
-	make docker_destroy: Destrulle el despliegue mediante contenedores
+	make docker_deploy: Despliega la aplicación en un IaaS mediante contenedores
+	make docker_provision: Aprovisiona la aplicación en el IaaS mediante contenedores
+	make docker_destroy: Destruye el despliegue mediante contenedores
 
+	make multi_deploy: Despliega 2 máquinas virtuales en un IaaS
+	make provision_machine1: Aprovisiona la maquina 1
+	make provision_machine2: Aprovisiona la maquina 2
+	make multi_destroy: Destruye el despliegue multi-máquina
 
 
 ###Integración continua: Travis
@@ -106,8 +110,8 @@ Podemos realizar el despliege en heroku de manera automática mediante:
 Mediante el uso de Fabric he creado un [fabfile.py](https://github.com/hugobarzano/osl-computer-management/blob/master/fabfile.py) en el que describo las distintas tareas de administración y despliegue que se pueden llevar a cabo de manera remota.
 Puedes consultar los detalles de como he realizado el despliegue remoto [aquí](https://github.com/hugobarzano/osl-computer-management/blob/master/documentacion/fabric.md)
 
-Para probar el depliegue rentorno utilizando fabric, es necesarios disponer de una maquina virtual virgen.
-Puedes consultar los detalles de como crear y configurar máquinas azure desde el portal de administración [aquí](https://github.com/hugobarzano/osl-computer-management/blob/master/documentacion/azure.md)
+Para probar el despliegue remoto utilizando fabric, es necesarios disponer de una maquina virtual virgen.
+Puedes consultar los detalles de como crear y configurar máquinas Azure desde el portal de administración [aquí](https://github.com/hugobarzano/osl-computer-management/blob/master/documentacion/azure.md)
 
 
 ###Docker Hub
@@ -144,33 +148,33 @@ Si queremos trabajar con algo mas potente, podemos utilizar la composición de s
 
 ### Ansible
 
-Ansible es una herramienta de automatización que permite configurar sistemas, implementar software y orquestar tareas complejas como por ejemplo despliegues continuos. He decidido utilizar ansible por su fiabilidad, facilidad de uso y seguridad. Para poder trabajar con ansible es necesario crear un archivo de aprovisionamiento.yml en el que detallar todas las dependencias, servicios y tareas que nuestra aplicación necesita para funcionar. Aunque puede usarse de manera independiente, si la combinamos con herramientas de creación y administración de entornos vistuales como por ejemplo Vagrant, podemos llegar a consegir grandes resultados.
+Ansible es una herramienta de automatización que permite configurar sistemas, implementar software y orquestar tareas complejas como por ejemplo despliegues continuos. He decidido utilizar Ansible por su fiabilidad, facilidad de uso y seguridad. Para poder trabajar con Ansible es necesario crear playbooks que no son mas que archivos de aprovisionamiento.yml en los que detallar todas las dependencias, servicios y tareas que nuestra aplicación necesita para funcionar. Aunque puede usarse de manera independiente, si la combinamos con herramientas de creación y administración de entornos virtuales como por ejemplo Vagrant, podemos llegar a conseguir grandes resultados.
 
 ####Playbook para aprovisionamiento de contenedores
 
-El primer playbook que he creado para la aplicación se puede consultar [aqui](https://github.com/hugobarzano/osl-computer-management/blob/master/vagrantDocker/playbook.yml). Este playbook actualiza el sistema base, instala dependencias, instala docker, instala la extensión docker-compose, descarga contenedores funcionales y los ejecuta. El vagrantfile asociado es [este](https://github.com/hugobarzano/osl-computer-management/blob/master/vagrantDocker/Vagrantfile)
-Enlace al despliege: [App](http://computermanagementdocker.cloudapp.net/)
+El primer playbook que he creado para la aplicación se puede consultar [aquí](https://github.com/hugobarzano/osl-computer-management/blob/master/vagrantDocker/playbook.yml). Este playbook actualiza el sistema base, instala dependencias, instala docker, instala la extensión docker-compose, descarga contenedores funcionales y los ejecuta. El vagrantfile asociado es [este](https://github.com/hugobarzano/osl-computer-management/blob/master/vagrantDocker/Vagrantfile)
+Enlace al despliegue: [App](http://computermanagementdocker.cloudapp.net/)
 Para realizar este tipo de despliegue solo hay que ejecutar:
 
 		make docker_deploy
 
-Si realizamos algun cambio en los contenedores o en los fuentes de la aplicación, podemos aprovisionarlos mediante
+Si realizamos algún cambio en los contenedores o en los fuentes de la aplicación, podemos aprovisionarlos mediante
 
 	make docker_provision
 
-Si queremos destruir el despliegue de contenedores podmeos hacerlo mediante
+Si queremos destruir el despliegue de contenedores podemos hacerlo mediante
 
 	make docker_destroy
 
-####Playbook para aprovisionamiento de aplicacion
+####Playbook para aprovisionamiento de aplicación
 
-El segundo playbook con el que cuenta la aplicacion se puede consultar [aqui](https://github.com/hugobarzano/osl-computer-management/blob/master/vagrantSimple/playbook.yml). Este playbook, actualizar sistema base, instala git, instala Python, incroniza la base de datos y ejecuta la aplicacion. El vagrantfile asociado es [este](https://github.com/hugobarzano/osl-computer-management/blob/master/vagrantSimple/Vagrantfile)
-Enlace al despliege: [App](http://computermanagementansible.cloudapp.net/)
+El segundo playbook con el que cuenta la aplicación se puede consultar [aquí](https://github.com/hugobarzano/osl-computer-management/blob/master/vagrantSimple/playbook.yml). Este playbook, actualizar sistema base, instala git, instala Python, incroniza la base de datos y ejecuta la aplicacion. El vagrantfile asociado es [este](https://github.com/hugobarzano/osl-computer-management/blob/master/vagrantSimple/Vagrantfile)
+Enlace al despliegue: [App](http://computermanagementansible.cloudapp.net/)
 Para realizar este tipo de despliegue solo hay que ejecutar:
 
 	make ansible_deploy
 
-Si realizamos algun cambio sobre los fuentes de la aplicacion podemos aprovisionarla mediante
+Si realizamos algún cambio sobre los fuentes de la aplicación podemos aprovisionarla mediante
 
 	make ansible_provision
 
@@ -179,41 +183,41 @@ Si queremos destruir el despliegue podemos hacerlo mediante
 	make ansible_destroy
 
 
-NOTA: Aunque en el proceso de aprovisionamiento, salte un fallo en el ultimo paso indicando que el puerto esta ocupado, el aprovisionamiento se lleva a cabo correctamente, lo que ocurre es que el servidor Django sigue ejecutandose mientras integramos nuevos fuentes y por eso el comando que pone la aplicacion a ejecutar en la creación, ya esta ejecutando la aplicación en el aprovisionamiento.
+NOTA: Aunque en el proceso de aprovisionamiento, salte un fallo en el ultimo paso indicando que el puerto esta ocupado, el aprovisionamiento se lleva a cabo correctamente, lo que ocurre es que el servidor Django sigue ejecutándose mientras integramos nuevos fuentes y por eso el comando que pone la aplicación a ejecutar en la creación, ya esta ejecutando la aplicación en el aprovisionamiento.
 
 #Vagrant
 
 Vagrant es una herramienta open-source para la creación y configuración de entornos de desarrollo virtualizados.
-Vagrant proporciona entornos de trabajo fáciles de configurar, reproducibles y portátiles. Está desarrollado con Ruby y utiliza  el sistema  de virtualización Virtualbox de Oracle. Este proyecto tiene asociado un fichero denominado Vagrantfile cuya función principal es la de  describir el tipo de máquinas necesarias para la aplicación, cómo configurarlas y como provisionarlas.
+Vagrant proporciona entornos de trabajo fáciles de configurar, reproducibles y portátiles. Está desarrollado con Ruby y utiliza  el sistema  de virtualización Virtualbox de Oracle. Este proyecto tiene asociado un fichero denominado Vagrantfile cuya función principal es la de  describir el tipo de máquinas necesarias para la aplicación, cómo configurarlas y como aprovisionarlas.
 
-Dependiendo del provedor de servicio, vagrant será configurado de una manera u otra. En mi caso, voy a utilizar azure, por lo que vagrant
-necesita el plugin Microsoft Azure provider to Vagrant. Con este plugin detallamos entre otras cosas nuestras credenciales en azure. Podemos consultar como configurar las credenciales [aqui](https://github.com/hugobarzano/osl-computer-management/blob/master/documentacion/credenciales.md)
+Dependiendo del proveedor de servicio, Vagrant será configurado de una manera u otra. En mi caso, voy a utilizar Azure, por lo que Vagrant
+necesita el plugin Microsoft Azure provider to Vagrant. Con este plugin detallamos entre otras cosas nuestras credenciales en Azure. Podemos consultar como configurar las credenciales [aquí](https://github.com/hugobarzano/osl-computer-management/blob/master/documentacion/credenciales.md)
 
-Con vagrant no solo podemos trabajar individualmente maquina a máquina, podemos utilizar vagrant-multimachine para crear en paralelo N máquinas virtuales y aprovisionarlas cada una como queramos. Puede consular el vagrantfile para la creación y aprovisionamiento de dos maquinas independientes aqui[]()
+Con Vagrant no solo podemos trabajar individualmente maquina a máquina, podemos utilizar vagrant-multimachine para crear en paralelo N máquinas virtuales y aprovisionarlas cada una como queramos. Puede consular el vagrantfile para la creación y aprovisionamiento de dos maquinas independientes aqui[]()
 
-Podemos realizar un despliege multiple mediante
+Podemos realizar un despliegue múltiple mediante
 
 	make multi_deploy
 
-Podemos comprobar por la url que las maquinas son independientes entre si y que aunque estan aprosionadas con el mismo contenido que los desplieges anteriores, son totalmente independientes y funcionales:
+Podemos comprobar por la url que las maquinas son independientes entre si y que aunque están aprovisionadas con el mismo contenido que los despliegues anteriores, son totalmente independientes y funcionales. Los enlaces a las máquinas son los siguientes, pero por motivo de credito, van a estar detenidas hasta el día de la presentación
 
 Host 1: [computermanagementansibleapp.cloudapp.net](http://computermanagementansibleapp.cloudapp.net/)
 
 Host 2: [computerManagementDockerApp.cloudapp.net](http://computermanagementdockerapp.cloudapp.net/)
 
-El aprovisionamiento de las maquinas creadas de forma multiple es necesario realizarlo de manera individual, por eso, si queremos aprovisionar la maquina 1, que tiene la aplicacion a pelo, podemos hacerlo mediante
+El aprovisionamiento de las maquinas creadas de forma múltiple es necesario realizarlo de manera individual, por eso, si queremos aprovisionar la maquina 1, que tiene la aplicación a pelo, podemos hacerlo mediante
 
 	make provision_machine1
 
-Si queremos aprovisionar la maquina 2, que tiene la aplicacion en contenedores, podemos hacerlo mediante
+Si queremos aprovisionar la maquina 2, que tiene la aplicación en contenedores, podemos hacerlo mediante
 
 	make provision_machine2
 
 
-NOTA: Aunque en el proceso de aprovisionamiento, salte un fallo en el ultimo paso indicando que el puerto esta ocupado, el aprovisionamiento se lleva a cabo correctamente, lo que ocurre es que el servidor Django sigue ejecutandose mientras integramos nuevos fuentes y por eso el comando que pone la aplicacion a ejecutar en la creación, ya esta ejecutando la aplicación en el aprovisionamiento.  
+NOTA: Aunque en el proceso de aprovisionamiento, salte un fallo en el ultimo paso indicando que el puerto esta ocupado, el aprovisionamiento se lleva a cabo correctamente, lo que ocurre es que el servidor Django sigue ejecutándose mientras integramos nuevos fuentes y por eso el comando que pone la aplicación a ejecutar en la creación, ya esta ejecutando la aplicación en el aprovisionamiento.  
 
 
-Si queremos destuir el despliegue multiple, basta con ejecutar
+Si queremos destruir el despliegue múltiple, basta con ejecutar
 
 	make multi_destroy
 
