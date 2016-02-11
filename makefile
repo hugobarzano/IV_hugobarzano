@@ -76,7 +76,6 @@ docker_compose:
 	sudo docker-compose run web
 
 docker_deploy:
-	vagrant box add azure https://github.com/msopentech/vagrant-azure/raw/master/dummy.box
 	cd vagrantDocker/ && vagrant up --provider=azure
 
 docker_provision:
@@ -86,7 +85,6 @@ docker_destroy:
 	cd vagrantDocker/ && vagrant destroy
 
 ansible_deploy:
-	vagrant box add azure https://github.com/msopentech/vagrant-azure/raw/master/dummy.box
 	cd vagrantSimple/ && vagrant up --provider=azure
 
 ansible_provision:
@@ -96,7 +94,6 @@ ansible_destroy:
 	cd vagrantSimple/ && vagrant destroy
 
 multi_deploy:
-	vagrant box add azure https://github.com/msopentech/vagrant-azure/raw/master/dummy.box
 	cd vagrantMultiMachine/ && vagrant up --provider=azure
 
 provision_machine1:
@@ -107,3 +104,6 @@ provision_machine2:
 
 multi_destroy:
 	cd vagrantMultiMachine/ && vagrant destroy
+
+add_box:
+	vagrant box add azure https://github.com/msopentech/vagrant-azure/raw/master/dummy.box
