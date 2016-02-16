@@ -12,6 +12,9 @@
 ###Descripción
 Se trata de realizar la infraestructura virtual necesaria para levantar una aplicación web que se encargue de controlar y automatizar la tarea de administrar y controlar la entrega y recogida de equipos informáticos por la Oficina de Software Libre así como el proceso de catalogarlos adecuadamente y generar informes.
 
+###Presentación del Proyecto
+[Infraestructura Virtual - Febrero](https://www.dropbox.com/s/lvjfkkh9zzn4r1k/Infraestuctura%20Virtual.pdf?dl=1)
+
 ###Infraestructura
 
 El proyecto cuenta con la siguiente infraestructura:
